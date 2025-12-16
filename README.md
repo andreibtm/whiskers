@@ -1,50 +1,52 @@
-# Welcome to your Expo app 👋
+# Whiskers
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Read deeply, remember more, and keep every thought in one place. Whiskers is an offline-first reading companion designed to cure fragmented reading—no more scribbles in margins, scattered stickies, or random notes apps.
 
-## Get started
+## Why Whiskers
+
+- **📚 The Anti-Library:** Organize Reading, Planning, and Finished stacks in a distraction-free dark mode space.
+- **🧠 Thought Stream:** Timeline notes with quick tags (Questions, Facts, Quotes, Synthesis) to build a second brain for every book.
+- **⚡ Scan & Scout:** Add books instantly by scanning ISBN barcodes (Google Books) or searching archives (Open Library).
+- **🔒 Local First:** Your data lives on your device—no login, no cloud, no tracking. Just you and your books.
+
+## Feature Highlights
+
+- Barcode scanning to capture ISBNs and prefill book data.
+- Manual add flow for titles without reliable metadata.
+- Library view with cover art, authors, and navigation into per-book detail.
+- Per-book note streams categorized for fast recall.
+- Offline-friendly: SQLite via Expo + Drizzle ORM; everything persists locally.
+
+## Tech Stack
+
+- **Expo / React Native** for the mobile experience.
+- **Expo Router** for file-based navigation.
+- **Drizzle ORM + Expo SQLite** for local, offline-first storage.
+- **Google Books / Open Library** for metadata lookups.
+
+## Getting Started
 
 1. Install dependencies
 
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Run the app (choose a platform in the Expo CLI)
 
-## Learn more
+```bash
+npx expo start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. If you hit DB errors on first run, reload so migrations can finish (handled in the app layout).
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Current Screens
 
-## Join the community
+- **Search**: Enter or scan an ISBN, fetch book metadata, save to library.
+- **Add Manually**: Enter title/author/pages/ISBN and optional cover.
+- **Library**: Browse saved books and open details.
+- **Camera**: Scan barcodes with a minimal overlay and one-tap flow.
 
-Join our community of developers creating universal apps.
+## Contributing
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Issues and PRs are welcome. Please keep contributions focused on the offline-first reading experience, clarity of UI, and reliability of local data.

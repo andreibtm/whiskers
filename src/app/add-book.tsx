@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import React from "react";
 import { Button, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { COLORS } from "../constants/theme";
 import { useAddBook } from "../features/add-book/logic";
 import { styles } from "../features/add-book/styles";
 
@@ -34,12 +35,14 @@ export default function AddBook() {
         <TextInput
           style={styles.input}
           placeholder="Title"
+          placeholderTextColor={COLORS.textSecondary}
           value={title}
           onChangeText={setTitle}
         />
         <TextInput
           style={styles.input}
           placeholder="Author"
+          placeholderTextColor={COLORS.textSecondary}
           value={author}
           onChangeText={setAuthor}
         />
@@ -47,12 +50,14 @@ export default function AddBook() {
           style={styles.input}
           placeholder="Pages"
           keyboardType="numeric"
+          placeholderTextColor={COLORS.textSecondary}
           value={pages}
           onChangeText={setPages}
         />
         <TextInput
           style={styles.input}
           placeholder="ISBN (optional)"
+          placeholderTextColor={COLORS.textSecondary}
           value={isbn}
           onChangeText={setIsbn}
         />

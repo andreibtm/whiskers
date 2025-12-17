@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONTS } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f7f7f7",
+    backgroundColor: COLORS.background,
   },
   content: {
     flexGrow: 1,
@@ -11,14 +12,14 @@ export const styles = StyleSheet.create({
     gap: 16,
   },
   back: {
-    color: "#1a73e8",
+    color: COLORS.textSecondary,
     marginBottom: 4,
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.surface,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: "#e0e0e0",
+    borderColor: COLORS.border,
     padding: 12,
     gap: 8,
   },
@@ -28,41 +29,56 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   title: {
-    fontSize: 20,
-    fontWeight: "700",
+    fontFamily: FONTS.serif,
+    fontSize: 22,
+    color: COLORS.textPrimary,
   },
   subtitle: {
+    fontFamily: FONTS.sans,
     fontSize: 16,
-    color: "#444",
+    color: COLORS.textSecondary,
   },
   meta: {
+    fontFamily: FONTS.sans,
     fontSize: 12,
-    color: "#666",
+    color: COLORS.textSecondary,
   },
   sectionTitle: {
-    fontSize: 16,
-    fontWeight: "700",
+    fontFamily: FONTS.serifBold,
+    fontSize: 18,
+    color: COLORS.textPrimary,
   },
   input: {
     minHeight: 80,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 10,
-    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderColor: COLORS.border,
+    paddingVertical: 12,
+    color: COLORS.textPrimary,
     textAlignVertical: "top",
+    fontFamily: FONTS.sans,
   },
   error: {
     color: "#b00020",
   },
   muted: {
-    color: "#666",
+    color: COLORS.textSecondary,
   },
   noteItem: {
     borderTopWidth: 1,
-    borderTopColor: "#eee",
+    borderTopColor: COLORS.border,
     paddingTop: 8,
     marginTop: 8,
+  },
+  noteMetaRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginBottom: 4,
+  },
+  noteDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 999,
   },
   noteActions: {
     flexDirection: "row",
@@ -70,18 +86,20 @@ export const styles = StyleSheet.create({
     marginTop: 6,
   },
   action: {
-    color: "#1a73e8",
-    fontWeight: "700",
+    color: COLORS.accent,
+    fontFamily: FONTS.sansBold,
   },
   danger: {
     color: "#b00020",
   },
   noteText: {
+    fontFamily: FONTS.sans,
     fontSize: 14,
+    color: COLORS.textPrimary,
   },
   noteDate: {
     fontSize: 12,
-    color: "#777",
+    color: COLORS.textSecondary,
     marginTop: 4,
   },
   noteInput: {
@@ -89,9 +107,9 @@ export const styles = StyleSheet.create({
   },
   noteBadge: {
     fontSize: 12,
-    color: "#1a73e8",
+    color: COLORS.textSecondary,
     marginTop: 4,
-    fontWeight: "700",
+    fontFamily: FONTS.sansBold,
   },
   chipRow: {
     flexDirection: "row",
@@ -108,27 +126,27 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: "#d1d5db",
-    backgroundColor: "#fff",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.surface,
   },
   chipSmall: {
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: "#d1d5db",
-    backgroundColor: "#fff",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.surface,
   },
   chipActive: {
-    backgroundColor: "#1a73e8",
-    borderColor: "#1a73e8",
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
   },
   chipText: {
-    color: "#374151",
-    fontWeight: "600",
+    color: COLORS.textSecondary,
+    fontFamily: FONTS.sansBold,
   },
   chipTextActive: {
-    color: "#fff",
+    color: COLORS.background,
   },
   notesHeader: {
     gap: 8,
@@ -141,7 +159,7 @@ export const styles = StyleSheet.create({
   },
   progressBarFill: {
     height: "100%",
-    backgroundColor: "#1a73e8",
+    backgroundColor: COLORS.accent,
   },
   progressRow: {
     flexDirection: "row",

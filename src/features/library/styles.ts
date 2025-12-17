@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONTS } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f7f7f7",
+    backgroundColor: COLORS.background,
   },
   content: {
     flexGrow: 1,
@@ -11,12 +12,13 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
   back: {
-    color: "#1a73e8",
+    color: COLORS.textSecondary,
     marginBottom: 4,
   },
   title: {
-    fontSize: 22,
-    fontWeight: "700",
+    fontFamily: FONTS.serifBold,
+    fontSize: 28,
+    color: COLORS.textPrimary,
     textAlign: "center",
     marginBottom: 8,
   },
@@ -36,24 +38,24 @@ export const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 14,
     borderWidth: 1,
-    borderColor: "#d1d5db",
-    backgroundColor: "#fff",
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.surface,
   },
   filterChipActive: {
-    backgroundColor: "#1a73e8",
-    borderColor: "#1a73e8",
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
   },
   filterChipText: {
-    color: "#374151",
-    fontWeight: "600",
+    color: COLORS.textSecondary,
+    fontFamily: FONTS.sansBold,
   },
   filterChipTextActive: {
-    color: "#fff",
+    color: COLORS.background,
   },
   error: {
     color: "#b00020",
   },
   muted: {
-    color: "#666",
+    color: COLORS.textSecondary,
   },
 });

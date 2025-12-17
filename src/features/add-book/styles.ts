@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import { COLORS, FONTS } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f7f7f7",
+    backgroundColor: COLORS.background,
   },
   content: {
     flexGrow: 1,
@@ -11,21 +12,22 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
   back: {
-    color: "#1a73e8",
+    color: COLORS.textSecondary,
     marginBottom: 4,
   },
   title: {
-    fontSize: 22,
-    fontWeight: "700",
+    fontFamily: FONTS.serifBold,
+    fontSize: 26,
     textAlign: "center",
     marginBottom: 8,
+    color: COLORS.textPrimary,
   },
   input: {
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 8,
-    padding: 10,
-    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderColor: COLORS.border,
+    paddingVertical: 12,
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.sans,
   },
   row: {
     flexDirection: "row",
@@ -36,27 +38,29 @@ export const styles = StyleSheet.create({
     width: 140,
     height: 200,
     borderRadius: 8,
-    backgroundColor: "#eee",
+    backgroundColor: COLORS.surface,
     borderWidth: 1,
-    borderColor: "#e0e0e0",
+    borderColor: COLORS.border,
   },
   muted: {
-    color: "#666",
+    color: COLORS.textSecondary,
   },
   error: {
     color: "#b00020",
   },
   success: {
-    color: "#0f8b4c",
+    color: COLORS.status.finished,
   },
   scanBtn: {
-    backgroundColor: "#111827",
+    backgroundColor: COLORS.surface,
     paddingHorizontal: 12,
     paddingVertical: 10,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: COLORS.border,
   },
   scanText: {
-    color: "#fff",
-    fontWeight: "700",
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.sansBold,
   },
 });

@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import React from "react";
 import { ActivityIndicator, Button, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { COLORS } from "../../constants/theme";
 import { useBookDetails } from "../../features/book/logic";
 import { styles } from "../../features/book/styles";
 import { type NoteCategory } from "../../modules/books/types";
@@ -175,8 +176,19 @@ export default function BookDetails() {
                 </>
               ) : (
                 <>
+                  <View style={styles.noteMetaRow}>
+                    <View
+                      style={[styles.noteDot, {
+                        backgroundColor:
+                          note.category === "Questions" ? COLORS.categories.question :
+                          note.category === "Facts" ? COLORS.categories.fact :
+                          note.category === "Quotes" ? COLORS.categories.quote :
+                          COLORS.categories.synthesis,
+                      }]}
+                    />
+                    <Text style={styles.noteBadge}>{note.category}</Text>
+                  </View>
                   <Text style={styles.noteText}>{note.content}</Text>
-                  <Text style={styles.noteBadge}>{note.category}</Text>
                   <Text style={styles.noteDate}>
                     {note.page != null ? `Pg ${note.page} • ` : ""}
                     {note.createdAt}

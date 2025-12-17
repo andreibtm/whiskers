@@ -1,6 +1,7 @@
 import { Link } from "expo-router";
 import React from "react";
-import { ActivityIndicator, Button, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { COLORS } from "../../constants/theme";
 import { useIsbnSearch } from "../../features/index/logic";
 import { styles } from "../../features/index/styles";
 
@@ -15,7 +16,7 @@ export default function Index() {
         <View style={styles.navRow}>
           <Link href="/camera" asChild>
             <TouchableOpacity style={[styles.navButton, styles.secondaryButton]}>
-              <Text style={styles.navButtonText}>Scan ISBN</Text>
+              <Text style={[styles.navButtonText, styles.navButtonTextAccent]}>Scan ISBN</Text>
             </TouchableOpacity>
           </Link>
         </View>
@@ -27,9 +28,12 @@ export default function Index() {
           autoCapitalize="none"
           keyboardType="default"
           style={styles.input}
+          placeholderTextColor={COLORS.textSecondary}
         />
 
-        <Button title="Fetch Book" onPress={() => handleFetch()} disabled={loading} />
+        <TouchableOpacity style={styles.navButton} onPress={() => handleFetch()} disabled={loading} activeOpacity={0.8}>
+          <Text style={styles.navButtonText}>{loading ? "Fetching..." : "Fetch Book"}</Text>
+        </TouchableOpacity>
 
         <View style={styles.status}>
           {loading && <ActivityIndicator />}
@@ -59,18 +63,16 @@ export default function Index() {
               <Text style={styles.placeholder}>No cover available</Text>
             )}
 
-            <Button
-              title={saving ? "Saving..." : "Add to Library"}
-              onPress={handleSave}
-              disabled={saving}
-            />
+            <TouchableOpacity style={styles.navButton} onPress={handleSave} disabled={saving} activeOpacity={0.8}>
+              <Text style={styles.navButtonText}>{saving ? "Saving..." : "Add to Library"}</Text>
+            </TouchableOpacity>
           </View>
         )}
 
         <View style={{ marginTop: 12 }}>
           <Link href="/add-book" asChild>
             <TouchableOpacity>
-              <Text style={[styles.navButtonText, { textAlign: "center", color: "#1a73e8" }]}>Cannot find it? Add manually →</Text>
+              <Text style={[styles.navButtonText, styles.navButtonTextAccent, { textAlign: "center" }]}>Cannot find it? Add manually →</Text>
             </TouchableOpacity>
           </Link>
         </View>

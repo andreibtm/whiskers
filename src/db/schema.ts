@@ -9,6 +9,7 @@ export const booksTable = sqliteTable("books_table", {
   img: text().notNull(),
   pages: int().notNull().default(0),
   currentPage: int().notNull().default(0),
+  status: text({ length: 20 }).notNull().default("reading"),
 });
 
 export const notesTable = sqliteTable("notes_table", {
@@ -17,4 +18,5 @@ export const notesTable = sqliteTable("notes_table", {
   content: text().notNull(),
   category: text().notNull().default('Synthesis'),
   createdAt: text().default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+  page: int(),
 });

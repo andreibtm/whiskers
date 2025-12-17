@@ -20,6 +20,8 @@ export default function BookDetails() {
     setNoteCategory,
     noteFilter,
     setNoteFilter,
+    notePage,
+    setNotePage,
     pageIncrement,
     setPageIncrement,
     editingId,
@@ -87,12 +89,12 @@ export default function BookDetails() {
           <View style={styles.progressRow}>
             <TextInput
               style={[styles.input, styles.progressInput]}
-              placeholder="Pages read"
+              placeholder="Update to Page #"
               keyboardType="numeric"
               value={pageIncrement}
               onChangeText={setPageIncrement}
             />
-            <Button title={saving ? "Saving..." : "Add"} onPress={handleUpdateProgress} disabled={saving} />
+            <Button title={saving ? "Saving..." : "Update"} onPress={handleUpdateProgress} disabled={saving} />
           </View>
         </View>
 
@@ -108,6 +110,16 @@ export default function BookDetails() {
                 <Text style={[styles.chipText, noteCategory === cat && styles.chipTextActive]}>{cat}</Text>
               </TouchableOpacity>
             ))}
+          </View>
+          <View style={styles.pageRow}>
+            <Text style={styles.meta}>Page:</Text>
+            <TextInput
+              style={[styles.input, styles.pageInput]}
+              keyboardType="numeric"
+              value={notePage}
+              onChangeText={setNotePage}
+              placeholder={book?.currentPage ? String(book.currentPage) : "Page #"}
+            />
           </View>
           <TextInput
             style={styles.input}
@@ -165,7 +177,10 @@ export default function BookDetails() {
                 <>
                   <Text style={styles.noteText}>{note.content}</Text>
                   <Text style={styles.noteBadge}>{note.category}</Text>
-                  <Text style={styles.noteDate}>{note.createdAt}</Text>
+                  <Text style={styles.noteDate}>
+                    {note.page != null ? `Pg ${note.page} • ` : ""}
+                    {note.createdAt}
+                  </Text>
                   <View style={styles.noteActions}>
                     <TouchableOpacity onPress={() => startEdit(note.id, note.content)}>
                       <Text style={styles.action}>Edit</Text>

@@ -1,7 +1,7 @@
 import { and, eq } from "drizzle-orm";
 import { db } from "../../db/client";
 import { booksTable, notesTable } from "../../db/schema";
-import type { Book, NewBookInput, Note, NoteCategory } from "./types";
+import type { Book, BookStatus, NewBookInput, Note, NoteCategory } from "./types";
 
 type DbBookRow = typeof booksTable.$inferSelect;
 type DbNoteRow = typeof notesTable.$inferSelect;
@@ -11,6 +11,7 @@ const normalizeBookInput = (input: NewBookInput) => ({
   img: input.img?.trim() || "no-cover",
   pages: Number.isFinite(input.pages) ? Number(input.pages) : 0,
   currentPage: Number.isFinite(input.currentPage) ? Number(input.currentPage) : 0,
+  status: input.status ?? "reading",
 });
 
 const mapBook = (row: DbBookRow): Book => ({
@@ -21,6 +22,7 @@ const mapBook = (row: DbBookRow): Book => ({
   img: row.img,
   pages: row.pages ?? 0,
   currentPage: row.currentPage ?? 0,
+  status: (row as any).status ?? "reading",
 });
 
 const mapNote = (row: DbNoteRow): Note => ({
@@ -29,6 +31,7 @@ const mapNote = (row: DbNoteRow): Note => ({
   content: row.content,
   category: row.category as NoteCategory,
   createdAt: row.createdAt,
+  page: (row as any).page ?? null,
 });
 
 export const getBooks = async (): Promise<Book[]> => {
@@ -59,6 +62,10 @@ export const updateBookProgress = async (id: number, currentPage: number) => {
   await db.update(booksTable).set({ currentPage }).where(eq(booksTable.id, id));
 };
 
+export const updateBookStatus = async (id: number, status: BookStatus) => {
+  await db.update(booksTable).set({ status }).where(eq(booksTable.id, id));
+};
+
 export const getBookById = async (id: number): Promise<Book[]> => {
   const rows = await db.select().from(booksTable).where(eq(booksTable.id, id));
   return rows.map(mapBook);
@@ -80,8 +87,8 @@ export const getNotesByBookId = async (bookId: number, category?: NoteCategory):
   return rows.map(mapNote);
 };
 
-export const addNoteForBook = async (bookId: number, content: string, category: NoteCategory) => {
-  await db.insert(notesTable).values({ bookId, content, category });
+export const addNoteForBook = async (bookId: number, content: string, category: NoteCategory, page?: number | null) => {
+  await db.insert(notesTable).values({ bookId, content, category, page });
 };
 
 export const updateNoteContent = async (id: number, content: string, category?: NoteCategory) => {

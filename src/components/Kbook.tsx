@@ -7,15 +7,30 @@ type BookProps = {
 	coverUrl?: string | null;
 	isbn?: string;
 	onPress?: () => void;
+	onLongPress?: () => void;
+	status?: string;
 };
 
-const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress }) => {
+const statusLabels: Record<string, string> = {
+	reading: "Reading",
+	paused: "Paused",
+	finished: "Finished",
+};
+
+const statusColors: Record<string, string> = {
+	reading: "#2563eb",
+	paused: "#d97706",
+	finished: "#16a34a",
+};
+
+const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress, onLongPress, status }) => {
 	const hasCover = Boolean(coverUrl);
+	const statusKey = status ?? "";
 
 	const Wrapper: React.ComponentType<any> = onPress ? TouchableOpacity : View;
 
 	return (
-		<Wrapper style={styles.card} onPress={onPress} activeOpacity={0.85}>
+		<Wrapper style={styles.card} onPress={onPress} onLongPress={onLongPress} activeOpacity={0.85}>
 			<View style={styles.row}>
 				{hasCover ? (
 					<Image
@@ -33,6 +48,11 @@ const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress }) 
 					<Text style={styles.title}>{title}</Text>
 					<Text style={styles.author}>{author}</Text>
 					{isbn ? <Text style={styles.meta}>ISBN: {isbn}</Text> : null}
+					{statusKey ? (
+						<Text style={[styles.status, { color: statusColors[statusKey] ?? "#374151" }]}>
+							{statusLabels[statusKey] ?? statusKey}
+						</Text>
+					) : null}
 				</View>
 			</View>
 		</Wrapper>
@@ -85,6 +105,10 @@ const styles = StyleSheet.create({
 	meta: {
 		fontSize: 12,
 		color: "#666",
+	},
+	status: {
+		fontSize: 12,
+		fontWeight: "700",
 	},
 });
 

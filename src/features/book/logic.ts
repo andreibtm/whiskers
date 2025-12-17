@@ -1,14 +1,16 @@
 import { useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { Alert } from "react-native";
 import {
   addNoteForBook,
   deleteNoteById,
   getBookById,
   getNotesByBookId,
   updateBookProgress,
+  updateBookStatus,
   updateNoteContent,
 } from "../../modules/books/book.service";
-import { NOTE_CATEGORIES, type NoteCategory } from "../../modules/books/types";
+import { NOTE_CATEGORIES, type BookStatus, type NoteCategory } from "../../modules/books/types";
 
 export type BookWithOptionalMeta = {
   id: number;
@@ -18,6 +20,7 @@ export type BookWithOptionalMeta = {
   img?: string;
   pages?: number;
   currentPage?: number;
+  status?: BookStatus;
 };
 
 export const useBookDetails = () => {
@@ -25,10 +28,11 @@ export const useBookDetails = () => {
   const bookId = id ? Number(id) : NaN;
 
   const [book, setBook] = useState<BookWithOptionalMeta | null>(null);
-  const [notes, setNotes] = useState<{ id: number; content: string; createdAt: string; category: NoteCategory }[]>([]);
+  const [notes, setNotes] = useState<{ id: number; content: string; createdAt: string; category: NoteCategory; page?: number | null }[]>([]);
   const [noteText, setNoteText] = useState("");
   const [noteCategory, setNoteCategory] = useState<NoteCategory>("Synthesis");
   const [noteFilter, setNoteFilter] = useState<NoteCategory | "All">("All");
+  const [notePage, setNotePage] = useState("");
   const [pageIncrement, setPageIncrement] = useState("");
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -47,6 +51,11 @@ export const useBookDetails = () => {
       try {
         const bookRows = await getBookById(bookId);
         setBook(bookRows[0] ?? null);
+        const loadedBook = bookRows[0];
+        if (loadedBook && (loadedBook.currentPage ?? 0) >= 0) {
+          setPageIncrement(String(loadedBook.currentPage ?? ""));
+          setNotePage(String(loadedBook.currentPage ?? ""));
+        }
         const noteRows = await getNotesByBookId(
           bookId,
           categoryFilter && categoryFilter !== "All" ? categoryFilter : undefined
@@ -74,11 +83,16 @@ export const useBookDetails = () => {
 
   const handleAddNote = useCallback(async () => {
     if (!bookId || !noteText.trim()) return;
+    const parsedPage = notePage.trim() ? Number(notePage) : book?.currentPage ?? null;
+    const safePage = Number.isFinite(parsedPage as number) ? Number(parsedPage) : null;
     setSaving(true);
     setError(null);
     try {
-      await addNoteForBook(bookId, noteText.trim(), noteCategory);
+      await addNoteForBook(bookId, noteText.trim(), noteCategory, safePage ?? null);
       setNoteText("");
+      if (book?.currentPage !== undefined) {
+        setNotePage(String(book.currentPage ?? ""));
+      }
       await loadData(noteFilter);
     } catch (error) {
       console.error(error);
@@ -90,16 +104,26 @@ export const useBookDetails = () => {
 
   const handleUpdateProgress = useCallback(async () => {
     if (!bookId || !pageIncrement.trim()) return;
-    const delta = Number(pageIncrement);
-    if (Number.isNaN(delta)) return;
-    const current = book?.currentPage ?? 0;
+    const targetPage = Number(pageIncrement);
+    if (Number.isNaN(targetPage)) return;
     const total = book?.pages ?? 0;
-    const next = Math.max(0, total ? Math.min(current + delta, total) : current + delta);
+    const next = Math.max(0, total ? Math.min(targetPage, total) : targetPage);
     setSaving(true);
     setError(null);
     try {
       await updateBookProgress(bookId, next);
-      setPageIncrement("");
+      setPageIncrement(String(next));
+      if (book) {
+        const statusToSet: BookStatus | null = total > 0 && next >= total ? "finished" : book.status === "paused" ? "reading" : null;
+        if (statusToSet === "finished" && book.status !== "finished") {
+          Alert.alert("Finished?", "Did you finish this book?", [
+            { text: "Not yet" },
+            { text: "Yes", onPress: async () => { await updateBookStatus(bookId, "finished"); await loadData(noteFilter); } }
+          ]);
+        } else if (statusToSet === "reading" && book.status === "paused") {
+          await updateBookStatus(bookId, "reading");
+        }
+      }
       await loadData(noteFilter);
     } catch (error) {
       console.error(error);
@@ -182,6 +206,8 @@ export const useBookDetails = () => {
     setNoteCategory,
     noteFilter,
     setNoteFilter,
+    notePage,
+    setNotePage,
     pageIncrement,
     setPageIncrement,
     editingId,

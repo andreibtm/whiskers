@@ -98,6 +98,11 @@ export const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 8,
   },
+  pageRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
   chip: {
     paddingHorizontal: 10,
     paddingVertical: 6,
@@ -145,6 +150,10 @@ export const styles = StyleSheet.create({
   },
   progressInput: {
     flex: 1,
+    minHeight: 44,
+  },
+  pageInput: {
+    flex: 0.4,
     minHeight: 44,
   },
   editLink: {

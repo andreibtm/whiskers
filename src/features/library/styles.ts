@@ -25,6 +25,31 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
   },
+  filterRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+    marginBottom: 8,
+  },
+  filterChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: "#d1d5db",
+    backgroundColor: "#fff",
+  },
+  filterChipActive: {
+    backgroundColor: "#1a73e8",
+    borderColor: "#1a73e8",
+  },
+  filterChipText: {
+    color: "#374151",
+    fontWeight: "600",
+  },
+  filterChipTextActive: {
+    color: "#fff",
+  },
   error: {
     color: "#b00020",
   },

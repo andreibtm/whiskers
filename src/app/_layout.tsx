@@ -23,9 +23,13 @@ export default function RootLayout() {
     );
   }
 
-  return <Stack
-      screenOptions={{
-        headerShown: false, // This hides the header for all screens in this stack
-      }}
-    />;
+  return (
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="camera" options={{ headerShown: false }} />
+      <Stack.Screen name="add-book" options={{ headerShown: false }} />
+      <Stack.Screen name="book/[id]" options={{ headerShown: false }} />
+      <Stack.Screen name="book/edit/[id]" options={{ headerShown: false }} />
+    </Stack>
+  );
 }

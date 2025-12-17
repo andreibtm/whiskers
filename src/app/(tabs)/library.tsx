@@ -1,9 +1,9 @@
 import { Link } from "expo-router";
 import React from "react";
 import { ActivityIndicator, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import Kbook from "../components/Kbook";
-import { useLibraryScreen } from "../features/library/logic";
-import { styles } from "../features/library/styles";
+import Kbook from "../../components/Kbook";
+import { useLibraryScreen } from "../../features/library/logic";
+import { styles } from "../../features/library/styles";
 
 export default function Library() {
   const { books, loading, error, handlePressBook, handleToggleStatus, statusFilter, setStatusFilter } = useLibraryScreen();
@@ -11,10 +11,14 @@ export default function Library() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
-        <Link href="/" style={styles.back}>
-          ← Back to Search
-        </Link>
-        <Text style={styles.title}>Your Library</Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
+          <Text style={styles.title}>Your Library</Text>
+          <Link href="/" asChild>
+            <TouchableOpacity>
+              <Text style={styles.back}>Add / Scout</Text>
+            </TouchableOpacity>
+          </Link>
+        </View>
 
         <View style={styles.filterRow}>
           {["reading", "paused", "finished", "all"].map((state) => (

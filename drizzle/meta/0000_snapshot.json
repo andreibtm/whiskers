@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "a4cf1fab-6170-4fe1-86e0-c6a3631885ae",
+  "id": "53799df4-c3b9-49bf-bf8b-ebfa17d47f6a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "books_table": {
@@ -57,6 +57,14 @@
           "notNull": true,
           "autoincrement": false,
           "default": 0
+        },
+        "status": {
+          "name": "status",
+          "type": "text(20)",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'reading'"
         }
       },
       "indexes": {
@@ -112,6 +120,13 @@
           "notNull": true,
           "autoincrement": false,
           "default": "(CURRENT_TIMESTAMP)"
+        },
+        "page": {
+          "name": "page",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         }
       },
       "indexes": {},

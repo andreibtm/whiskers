@@ -7,7 +7,24 @@ export const useCameraScreen = () => {
   const [scanned, setScanned] = useState(false);
   const handlingScanRef = useRef(false);
   const router = useRouter();
-  const { returnTo } = useLocalSearchParams<{ returnTo?: string }>();
+  const { returnTo, title, author, pages, img } = useLocalSearchParams<{
+    returnTo?: string;
+    title?: string;
+    author?: string;
+    pages?: string;
+    img?: string;
+  }>();
+
+  const resolveTargetPath = (): "/" | "/add-book" | "/camera" | "/library" => {
+    switch (returnTo) {
+      case "/add-book":
+      case "/camera":
+      case "/library":
+        return returnTo;
+      default:
+        return "/";
+    }
+  };
 
   const resetScan = () => {
     handlingScanRef.current = false;
@@ -18,7 +35,16 @@ export const useCameraScreen = () => {
     if (handlingScanRef.current) return;
     handlingScanRef.current = true;
     setScanned(true);
-    router.push({ pathname: returnTo || "/", params: { isbn: data, type } });
+    const pathname = resolveTargetPath();
+    if (pathname === "/add-book") {
+      router.push({ pathname: "/add-book", params: { isbn: data, type, title, author, pages, img } });
+    } else if (pathname === "/camera") {
+      router.push({ pathname: "/camera" });
+    } else if (pathname === "/library") {
+      router.push({ pathname: "/library" });
+    } else {
+      router.push({ pathname: "/", params: { isbn: data } });
+    }
   };
 
   return {

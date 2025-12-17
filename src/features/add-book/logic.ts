@@ -5,7 +5,8 @@ import { addBook } from "../../modules/books/book.service";
 
 export const useAddBook = () => {
   const router = useRouter();
-  const { isbn: scannedIsbn } = useLocalSearchParams<{ isbn?: string }>();
+  const { isbn: scannedIsbn, title: titleParam, author: authorParam, pages: pagesParam, img: imgParam } =
+    useLocalSearchParams<{ isbn?: string; title?: string; author?: string; pages?: string; img?: string }>();
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -21,6 +22,21 @@ export const useAddBook = () => {
       setIsbn(scannedIsbn.trim());
     }
   }, [scannedIsbn]);
+
+  useEffect(() => {
+    if (typeof titleParam === "string" && titleParam.length) {
+      setTitle(titleParam);
+    }
+    if (typeof authorParam === "string" && authorParam.length) {
+      setAuthor(authorParam);
+    }
+    if (typeof pagesParam === "string" && pagesParam.length) {
+      setPages(pagesParam);
+    }
+    if (typeof imgParam === "string" && imgParam.length) {
+      setImg(imgParam);
+    }
+  }, [titleParam, authorParam, pagesParam, imgParam]);
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -43,7 +59,7 @@ export const useAddBook = () => {
     setError(null);
     setMessage(null);
     try {
-      await addBook({
+      const result = await addBook({
         title: title.trim(),
         author: author.trim(),
         img: img ?? "no-cover",
@@ -51,14 +67,32 @@ export const useAddBook = () => {
         pages: parsedPages,
         currentPage: 0,
       });
-      setMessage("Book added");
-      router.push("/library");
+      if (result.status === "duplicate") {
+        setError("A book with that ISBN is already in your library");
+      } else {
+        setMessage("Book added");
+        router.push("/library");
+      }
     } catch (error) {
       console.error(error);
       setError("Could not save book");
     } finally {
       setSaving(false);
     }
+  };
+
+  const goToScanner = () => {
+    router.push({
+      pathname: "/camera",
+      params: {
+        returnTo: "/add-book",
+        title,
+        author,
+        pages,
+        img: img ?? undefined,
+        isbn,
+      },
+    });
   };
 
   return {
@@ -76,5 +110,6 @@ export const useAddBook = () => {
     message,
     pickImage,
     handleSave,
+    goToScanner,
   };
 };

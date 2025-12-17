@@ -123,11 +123,11 @@ export default function BookDetails() {
           <View style={styles.notesHeader}>
             <Text style={styles.sectionTitle}>Notes</Text>
             <View style={styles.chipRow}>
-              {["All", ...categories].map((cat: NoteCategory | "All") => (
+              {(["All", ...categories] as (NoteCategory | "All")[]).map((cat) => (
                 <TouchableOpacity
                   key={cat}
                   style={[styles.chipSmall, noteFilter === cat && styles.chipActive]}
-                  onPress={() => setNoteFilter(cat as NoteCategory | "All")}
+                  onPress={() => setNoteFilter(cat)}
                 >
                   <Text style={[styles.chipText, noteFilter === cat && styles.chipTextActive]}>{cat}</Text>
                 </TouchableOpacity>

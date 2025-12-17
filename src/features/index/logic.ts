@@ -73,7 +73,7 @@ export const useIsbnSearch = () => {
     try {
       const safeAuthor = book.authors?.trim() || "Unknown";
       const safeCover = book.coverUrl?.trim() || "no-cover";
-      await addBook({
+      const result = await addBook({
         isbn: book.isbn,
         title: book.title,
         author: safeAuthor,
@@ -81,12 +81,14 @@ export const useIsbnSearch = () => {
         pages: book.pages ?? 0,
         currentPage: 0,
       });
-      setSaveMessage("Saved to library");
+      if (result.status === "duplicate") {
+        setError("This ISBN is already saved");
+      } else {
+        setSaveMessage("Saved to library");
+      }
     } catch (error) {
       const message = error instanceof Error ? error.message : "Could not save this book";
-      if (message.includes("UNIQUE")) {
-        setError("This ISBN is already saved");
-      } else if (message.includes("NOT NULL")) {
+      if (message.includes("NOT NULL")) {
         setError("Missing required book fields");
       } else {
         setError("Could not save this book");

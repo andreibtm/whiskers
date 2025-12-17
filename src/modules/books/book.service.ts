@@ -36,9 +36,18 @@ export const getBooks = async (): Promise<Book[]> => {
   return rows.map(mapBook);
 };
 
-export const addBook = async (payload: NewBookInput) => {
+export const addBook = async (payload: NewBookInput): Promise<{ status: "inserted" | "duplicate" }> => {
   const normalized = normalizeBookInput(payload);
-  await db.insert(booksTable).values(normalized);
+  try {
+    await db.insert(booksTable).values(normalized);
+    return { status: "inserted" };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "";
+    if (message.includes("UNIQUE") && normalized.isbn) {
+        return { status: "duplicate" };
+    }
+    throw error;
+  }
 };
 
 export const updateBook = async (id: number, payload: NewBookInput) => {

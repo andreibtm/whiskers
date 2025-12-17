@@ -20,6 +20,7 @@ export default function AddBook() {
     message,
     pickImage,
     handleSave,
+    goToScanner,
   } = useAddBook();
 
   return (
@@ -58,11 +59,9 @@ export default function AddBook() {
 
         <View style={styles.row}>
           <Button title="Pick Cover" onPress={pickImage} />
-          <Link href={{ pathname: "/camera", params: { returnTo: "/add-book" } }} asChild>
-            <TouchableOpacity style={styles.scanBtn}>
-              <Text style={styles.scanText}>Scan ISBN</Text>
-            </TouchableOpacity>
-          </Link>
+          <TouchableOpacity style={styles.scanBtn} onPress={goToScanner}>
+            <Text style={styles.scanText}>Scan ISBN</Text>
+          </TouchableOpacity>
         </View>
 
         {img ? (

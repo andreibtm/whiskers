@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   },
   cover: {
     width: 140,
-    height: 200,
+    aspectRatio: 2 / 3,
     borderRadius: 8,
     backgroundColor: COLORS.surface,
     borderWidth: 1,

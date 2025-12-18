@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
 	},
 	cover: {
 		width: 60,
-		height: 90,
+		aspectRatio: 2 / 3,
 		borderRadius: 4,
 		backgroundColor: "#222",
 	},

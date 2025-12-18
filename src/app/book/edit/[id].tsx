@@ -1,6 +1,8 @@
 import { Link } from "expo-router";
 import React from "react";
-import { Button, Image, SafeAreaView, ScrollView, Text, TextInput, View } from "react-native";
+import { Image, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { COLORS } from "../../../constants/theme";
 import { useEditBook } from "../../../features/book/edit/logic";
 import { styles } from "../../../features/book/edit/styles";
 
@@ -43,43 +45,61 @@ export default function EditBook() {
         </Link>
         <Text style={styles.title}>Edit Book</Text>
 
-        {loading && <Text>Loading...</Text>}
+        {loading && <Text style={styles.muted}>Loading...</Text>}
         {error && <Text style={styles.error}>{error}</Text>}
+        <View style={styles.card}>
+          <TextInput
+            style={styles.input}
+            placeholder="Title"
+            placeholderTextColor={COLORS.textSecondary}
+            value={title}
+            onChangeText={setTitle}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Author"
+            placeholderTextColor={COLORS.textSecondary}
+            value={author}
+            onChangeText={setAuthor}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Pages"
+            placeholderTextColor={COLORS.textSecondary}
+            keyboardType="numeric"
+            value={pages}
+            onChangeText={setPages}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Current page"
+            placeholderTextColor={COLORS.textSecondary}
+            keyboardType="numeric"
+            value={currentPage}
+            onChangeText={setCurrentPage}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="ISBN (optional)"
+            placeholderTextColor={COLORS.textSecondary}
+            value={isbn}
+            onChangeText={setIsbn}
+          />
 
-        <TextInput style={styles.input} placeholder="Title" value={title} onChangeText={setTitle} />
-        <TextInput style={styles.input} placeholder="Author" value={author} onChangeText={setAuthor} />
-        <TextInput
-          style={styles.input}
-          placeholder="Pages"
-          keyboardType="numeric"
-          value={pages}
-          onChangeText={setPages}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Current page"
-          keyboardType="numeric"
-          value={currentPage}
-          onChangeText={setCurrentPage}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="ISBN (optional)"
-          value={isbn}
-          onChangeText={setIsbn}
-        />
+          <TouchableOpacity style={[styles.navButton, styles.navButtonSecondary]} onPress={pickImage} activeOpacity={0.8}>
+            <Text style={[styles.navButtonText, styles.navButtonTextAccent]}>Change Cover</Text>
+          </TouchableOpacity>
 
-        <View style={styles.row}>
-          <Button title="Change Cover" onPress={pickImage} />
+          {img ? (
+            <Image source={{ uri: img }} style={styles.cover} />
+          ) : (
+            <Text style={styles.muted}>No cover selected</Text>
+          )}
         </View>
 
-        {img ? (
-          <Image source={{ uri: img }} style={styles.cover} />
-        ) : (
-          <Text style={styles.muted}>No cover selected</Text>
-        )}
-
-        <Button title={saving ? "Saving..." : "Save Changes"} onPress={handleSave} disabled={saving} />
+        <TouchableOpacity style={styles.navButton} onPress={handleSave} disabled={saving} activeOpacity={0.8}>
+          <Text style={styles.navButtonText}>{saving ? "Saving..." : "Save Changes"}</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

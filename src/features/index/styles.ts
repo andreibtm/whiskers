@@ -30,7 +30,6 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 10,
     alignItems: "center",
-    flex: 1,
     borderWidth: 1,
     borderColor: COLORS.accent,
   },
@@ -47,6 +46,7 @@ export const styles = StyleSheet.create({
   },
   navButtonTextAccent: {
     color: COLORS.accent,
+    
   },
   navRow: {
     flexDirection: "row",
@@ -86,7 +86,7 @@ export const styles = StyleSheet.create({
   },
   cover: {
     width: 140,
-    height: 200,
+    aspectRatio: 2 / 3,
     borderRadius: 8,
     backgroundColor: COLORS.surface,
     borderWidth: 1,

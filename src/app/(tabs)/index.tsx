@@ -69,6 +69,8 @@ export default function Index() {
           </View>
         )}
 
+        <View style={{ flex: 1 }} />
+
         <View style={{ marginTop: 12 }}>
           <Link href="/add-book" asChild>
             <TouchableOpacity>

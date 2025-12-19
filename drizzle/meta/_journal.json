@@ -8,6 +8,13 @@
       "when": 1765994832144,
       "tag": "0000_amazing_thor",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1766200000000,
+      "tag": "0001_home_stats",
+      "breakpoints": true
     }
   ]
 }

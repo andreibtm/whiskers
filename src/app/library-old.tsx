@@ -12,7 +12,7 @@ export default function Library() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <Link href="/" style={styles.back}>
-          ← Back to Search
+          ← Back to Home
         </Link>
         <Text style={styles.title}>Your Library</Text>
 

@@ -20,3 +20,16 @@ export const notesTable = sqliteTable("notes_table", {
   createdAt: text().default(sql`(CURRENT_TIMESTAMP)`).notNull(),
   page: int(),
 });
+
+export const readingSessionsTable = sqliteTable("reading_sessions_table", {
+  id: int().primaryKey({ autoIncrement: true }),
+  bookId: int(),
+  pagesRead: int().notNull().default(0),
+  minutes: int().notNull().default(0),
+  recordedAt: text().default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+});
+
+export const goalsTable = sqliteTable("goals_table", {
+  id: int().primaryKey({ autoIncrement: true }),
+  booksTarget: int().notNull().default(12),
+});

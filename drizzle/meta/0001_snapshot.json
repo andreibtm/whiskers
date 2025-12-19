@@ -1,0 +1,79 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "5f61e6ed-7c8a-4dcd-8ff1-5f4f0e2b5b8e",
+  "prevId": "53799df4-c3b9-49bf-bf8b-ebfa17d47f6a",
+  "tables": {
+    "books_table": {
+      "name": "books_table",
+      "columns": {
+        "id": {"name": "id", "type": "integer", "primaryKey": true, "notNull": true, "autoincrement": true},
+        "isbn": {"name": "isbn", "type": "text", "primaryKey": false, "notNull": false, "autoincrement": false},
+        "title": {"name": "title", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false},
+        "author": {"name": "author", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false},
+        "img": {"name": "img", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false},
+        "pages": {"name": "pages", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false, "default": 0},
+        "currentPage": {"name": "currentPage", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false, "default": 0},
+        "status": {"name": "status", "type": "text(20)", "primaryKey": false, "notNull": true, "autoincrement": false, "default": "'reading'"}
+      },
+      "indexes": {
+        "books_table_isbn_unique": {
+          "name": "books_table_isbn_unique",
+          "columns": ["isbn"],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "notes_table": {
+      "name": "notes_table",
+      "columns": {
+        "id": {"name": "id", "type": "integer", "primaryKey": true, "notNull": true, "autoincrement": true},
+        "bookId": {"name": "bookId", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false},
+        "content": {"name": "content", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false},
+        "category": {"name": "category", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false, "default": "'Synthesis'"},
+        "createdAt": {"name": "createdAt", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false, "default": "(CURRENT_TIMESTAMP)"},
+        "page": {"name": "page", "type": "integer", "primaryKey": false, "notNull": false, "autoincrement": false}
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "reading_sessions_table": {
+      "name": "reading_sessions_table",
+      "columns": {
+        "id": {"name": "id", "type": "integer", "primaryKey": true, "notNull": true, "autoincrement": true},
+        "bookId": {"name": "bookId", "type": "integer", "primaryKey": false, "notNull": false, "autoincrement": false},
+        "pagesRead": {"name": "pagesRead", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false, "default": 0},
+        "minutes": {"name": "minutes", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false, "default": 0},
+        "recordedAt": {"name": "recordedAt", "type": "text", "primaryKey": false, "notNull": true, "autoincrement": false, "default": "(CURRENT_TIMESTAMP)"}
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "goals_table": {
+      "name": "goals_table",
+      "columns": {
+        "id": {"name": "id", "type": "integer", "primaryKey": true, "notNull": true, "autoincrement": true},
+        "booksTarget": {"name": "booksTarget", "type": "integer", "primaryKey": false, "notNull": true, "autoincrement": false, "default": 12}
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {"schemas": {}, "tables": {}, "columns": {}},
+  "internal": {"indexes": {}}
+}

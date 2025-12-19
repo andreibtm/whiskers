@@ -6,30 +6,24 @@ import { COLORS } from "../../constants/theme";
 export default function TabsLayout() {
   return (
     <Tabs
+      initialRouteName="index"
       screenOptions={{
         headerShown: false,
-        // 1. The Colors
         tabBarActiveTintColor: COLORS.textPrimary,
         tabBarInactiveTintColor: COLORS.textSecondary,
-        
-        // 2. The Bar Style
         tabBarStyle: {
           backgroundColor: COLORS.background,
-          borderTopColor: COLORS.border, // The Divider Line Color
-          borderTopWidth: 1,             // The Divider Line Thickness
-          height: 80,                    // Taller, premium feel
-          paddingTop: 10,                // Push icons down slightly
-          paddingBottom: 20,             // Extra padding for iPhone Home Indicator
+          borderTopColor: COLORS.border,
+          borderTopWidth: 1,
+          height: 80,
+          paddingTop: 10,
+          paddingBottom: 20,
         },
-        
-        // 3. The Label Style (Text below icon)
         tabBarLabelStyle: {
-          fontFamily: 'Inter_400Regular', // Use your custom Sans font
+          fontFamily: 'Inter_400Regular',
           fontSize: 14,
-          marginTop: 2,                 // Pull text closer to icon if needed
+          marginTop: 2,
         },
-        
-        // 4. Remove default click effect on Android
         tabBarItemStyle: {
             justifyContent: 'center',
             alignItems: 'center',
@@ -41,10 +35,22 @@ export default function TabsLayout() {
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
-            // Swapping icon based on focus state (filled vs outline)
             <Ionicons 
               size={24} 
               name={focused ? "home" : "home-outline"} 
+              color={color} 
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons 
+              size={24} 
+              name={focused ? "search" : "search-outline"} 
               color={color} 
             />
           ),

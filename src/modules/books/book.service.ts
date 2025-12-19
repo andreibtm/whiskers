@@ -1,6 +1,6 @@
 import { and, eq } from "drizzle-orm";
 import { db } from "../../db/client";
-import { booksTable, notesTable } from "../../db/schema";
+import { booksTable, notesTable, readingSessionsTable } from "../../db/schema";
 import type { Book, BookStatus, NewBookInput, Note, NoteCategory } from "./types";
 
 type DbBookRow = typeof booksTable.$inferSelect;
@@ -59,7 +59,24 @@ export const updateBook = async (id: number, payload: NewBookInput) => {
 };
 
 export const updateBookProgress = async (id: number, currentPage: number) => {
+  const previous = await db
+    .select({ currentPage: booksTable.currentPage })
+    .from(booksTable)
+    .where(eq(booksTable.id, id))
+    .limit(1);
+  const previousPage = previous[0]?.currentPage ?? 0;
+
   await db.update(booksTable).set({ currentPage }).where(eq(booksTable.id, id));
+
+  const delta = Math.max(0, currentPage - previousPage);
+  if (delta > 0) {
+    await db.insert(readingSessionsTable).values({
+      bookId: id,
+      pagesRead: delta,
+      minutes: 0,
+      recordedAt: new Date().toISOString(),
+    });
+  }
 };
 
 export const updateBookStatus = async (id: number, status: BookStatus) => {

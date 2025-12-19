@@ -16,7 +16,7 @@ export default function Library() {
       <ScrollView contentContainerStyle={styles.content}>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
           <Text style={styles.title}>Library</Text>
-          <Link href="/" asChild>
+          <Link href="/search" asChild>
             <TouchableOpacity>
               <AntDesign name="plus" size={24} color={COLORS.textSecondary} />
             </TouchableOpacity>

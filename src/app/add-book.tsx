@@ -27,7 +27,7 @@ export default function AddBook() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
-        <Link href="/" style={styles.back}>
+        <Link href="/search" style={styles.back}>
           ← Back
         </Link>
         <Text style={styles.title}>Add Book Manually</Text>

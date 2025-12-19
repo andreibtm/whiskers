@@ -34,13 +34,13 @@ const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress, on
 			<View style={styles.info}>
 				<Text style={styles.title} numberOfLines={2}>{title}</Text>
 				<Text style={styles.author} numberOfLines={1}>{author}</Text>
+				<View style={{ flex: 1 }} />
 				{statusKey ? (
 					<View style={[styles.statusPill, { borderColor: statusColor }] }>
 						<Ionicons name="bookmark" size={12} color={COLORS.textPrimary} />
 						<Text style={styles.statusText}>{statusKey.charAt(0).toUpperCase() + statusKey.slice(1)}</Text>
 					</View>
 				) : null}
-				{isbn ? <Text style={styles.meta}>ISBN: {isbn}</Text> : null}
 			</View>
 
 			<View style={styles.moreBtn}>
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	title: {
-		fontFamily: FONTS.serif,
+		fontFamily: FONTS.sans,
 		fontSize: 18,
 		color: COLORS.textPrimary,
 	},

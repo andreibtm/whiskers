@@ -16,8 +16,8 @@ export const styles = StyleSheet.create({
     marginBottom: 4,
   },
   title: {
-    fontFamily: FONTS.serifBold,
-    fontSize: 28,
+    fontFamily: FONTS.serif,
+    fontSize:30,
     color: COLORS.textPrimary,
     textAlign: "center",
     marginBottom: 8,
@@ -29,28 +29,30 @@ export const styles = StyleSheet.create({
   },
   filterRow: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 8,
-    marginBottom: 8,
+    gap: 16,
+    marginBottom: 4,
   },
   filterChip: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 0,
     paddingVertical: 6,
-    borderRadius: 14,
-    borderWidth: 1,
-    borderColor: COLORS.border,
-    backgroundColor: COLORS.surface,
+    borderRadius: 0,
   },
   filterChipActive: {
-    backgroundColor: COLORS.accent,
-    borderColor: COLORS.accent,
+    borderBottomWidth: 2,
+    borderBottomColor: COLORS.textPrimary,
   },
   filterChipText: {
     color: COLORS.textSecondary,
     fontFamily: FONTS.sansBold,
+    fontSize: 16,
   },
   filterChipTextActive: {
-    color: COLORS.background,
+    color: COLORS.textPrimary,
+  },
+  filterDivider: {
+    marginTop: 4,
+    height: 1,
+    backgroundColor: COLORS.border,
   },
   error: {
     color: "#b00020",

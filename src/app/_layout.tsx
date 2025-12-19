@@ -1,9 +1,17 @@
+import { Inter_400Regular, Inter_600SemiBold, useFonts } from "@expo-google-fonts/inter";
+import { LibreBaskerville_400Regular, LibreBaskerville_700Bold } from "@expo-google-fonts/libre-baskerville";
 import { Stack } from "expo-router";
 import React from "react";
 import { ActivityIndicator, SafeAreaView, Text } from "react-native";
 import { useLibraryMigrations } from "../db/client";
 
 export default function RootLayout() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_600SemiBold,
+    LibreBaskerville_400Regular,
+    LibreBaskerville_700Bold,
+  });
   const { success, error } = useLibraryMigrations();
 
   if (error) {
@@ -14,11 +22,11 @@ export default function RootLayout() {
     );
   }
 
-  if (!success) {
+  if (!success || !fontsLoaded) {
     return (
       <SafeAreaView style={{ flex: 1, alignItems: "center", justifyContent: "center", gap: 12 }}>
         <ActivityIndicator />
-        <Text>Preparing library...</Text>
+        <Text>Preparing app...</Text>
       </SafeAreaView>
     );
   }

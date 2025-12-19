@@ -1,9 +1,6 @@
-import { COLORS } from '@/src/constants/theme';
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { Link } from "expo-router";
 import React from "react";
-import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { ActivityIndicator, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import Kbook from "../../components/Kbook";
 import { useLibraryScreen } from "../../features/library/logic";
 import { styles } from "../../features/library/styles";
@@ -15,16 +12,16 @@ export default function Library() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-          <Text style={styles.title}>Library</Text>
+          <Text style={styles.title}>Your Library</Text>
           <Link href="/" asChild>
             <TouchableOpacity>
-              <AntDesign name="plus" size={24} color={COLORS.textSecondary} />
+              <Text style={styles.back}>Add / Scout</Text>
             </TouchableOpacity>
           </Link>
         </View>
 
         <View style={styles.filterRow}>
-          {["all", "reading", "paused", "finished"].map((state) => (
+          {["reading", "paused", "finished", "all"].map((state) => (
             <TouchableOpacity
               key={state}
               style={[styles.filterChip, statusFilter === state && styles.filterChipActive]}
@@ -36,7 +33,6 @@ export default function Library() {
             </TouchableOpacity>
           ))}
         </View>
-        <View style={styles.filterDivider} />
 
         {loading && (
           <View style={styles.centerRow}>

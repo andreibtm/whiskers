@@ -100,7 +100,7 @@ export const useBookDetails = () => {
     } finally {
       setSaving(false);
     }
-  }, [bookId, noteText, noteCategory, loadData, noteFilter]);
+  }, [bookId, noteText, noteCategory, notePage, book?.currentPage, loadData, noteFilter]);
 
   const handleUpdateProgress = useCallback(async () => {
     if (!bookId || !pageIncrement.trim()) return;
@@ -131,7 +131,7 @@ export const useBookDetails = () => {
     } finally {
       setSaving(false);
     }
-  }, [bookId, pageIncrement, book?.currentPage, book?.pages, loadData, noteFilter]);
+  }, [bookId, pageIncrement, book, loadData, noteFilter]);
 
   const startEdit = useCallback(
     (id: number, content: string) => {

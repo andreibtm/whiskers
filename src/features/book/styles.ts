@@ -59,6 +59,20 @@ export const styles = StyleSheet.create({
     gap: 12,
     flexWrap: "wrap",
   },
+  statusPill: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.surface,
+  },
+  statusPillText: {
+    fontFamily: FONTS.sansBold,
+    fontSize: 12,
+    color: COLORS.textSecondary,
+    textTransform: "capitalize",
+  },
   input: {
     minHeight: 80,
     borderBottomWidth: 1,

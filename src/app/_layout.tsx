@@ -2,7 +2,8 @@ import { Inter_400Regular, Inter_600SemiBold, useFonts } from "@expo-google-font
 import { LibreBaskerville_400Regular, LibreBaskerville_700Bold } from "@expo-google-fonts/libre-baskerville";
 import { Stack } from "expo-router";
 import React from "react";
-import { ActivityIndicator, SafeAreaView, Text } from "react-native";
+import { ActivityIndicator, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { useLibraryMigrations } from "../db/client";
 
 export default function RootLayout() {

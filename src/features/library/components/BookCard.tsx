@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { COLORS, FONTS } from "../constants/theme";
+import { COLORS, FONTS } from "../../../constants/theme";
 
 type BookProps = {
 	title: string;
@@ -13,7 +13,7 @@ type BookProps = {
 	status?: string;
 };
 
-const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress, onLongPress, status }) => {
+const BookCard: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress, onLongPress, status }) => {
 	const hasCover = Boolean(coverUrl);
 	const statusKey = status ?? "";
 	const statusColors: Record<"reading" | "paused" | "finished", string> = COLORS.status;
@@ -127,4 +127,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Kbook;
+export default BookCard;

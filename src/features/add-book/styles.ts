@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    padding: 24,
-    gap: 12,
+    padding: 20,
+    gap: 18,
   },
   back: {
     color: COLORS.textSecondary,
@@ -22,6 +22,13 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
     color: COLORS.textPrimary,
   },
+  subtitle: {
+    fontFamily: FONTS.sans,
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    textAlign: "center",
+    lineHeight: 20,
+  },
   input: {
     borderBottomWidth: 1,
     borderColor: COLORS.border,
@@ -29,10 +36,44 @@ export const styles = StyleSheet.create({
     color: COLORS.textPrimary,
     fontFamily: FONTS.sans,
   },
-  row: {
+  buttonRow: {
     flexDirection: "row",
-    gap: 12,
     alignItems: "center",
+    gap: 10,
+  },
+  navButton: {
+    backgroundColor: COLORS.accent,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: COLORS.accent,
+  },
+  navButtonText: {
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.sansBold,
+    fontSize: 16,
+  },
+  ghostButton: {
+    backgroundColor: COLORS.surface,
+    borderColor: COLORS.border,
+    borderWidth: 1,
+  },
+  iconGhostBtn: {
+    width: 44,
+    height: 44,
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.surface,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+  },
+  iconLabelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
   },
   cover: {
     width: 140,
@@ -51,16 +92,38 @@ export const styles = StyleSheet.create({
   success: {
     color: COLORS.status.finished,
   },
-  scanBtn: {
+  statusRow: {
+    minHeight: 28,
+    justifyContent: "center",
+    gap: 4,
+  },
+  cardPrimary: {
     backgroundColor: COLORS.surface,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    borderRadius: 8,
+    padding: 16,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: COLORS.border,
+    gap: 14,
   },
-  scanText: {
+  sectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8,
+  },
+  sectionTitle: {
+    fontFamily: FONTS.serifBold,
+    fontSize: 18,
     color: COLORS.textPrimary,
-    fontFamily: FONTS.sansBold,
+  },
+  headerIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.surface,
+    borderWidth: 1,
+    borderColor: COLORS.border,
   },
 });

@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    padding: 24,
-    gap: 16,
+    padding: 20,
+    gap: 18,
   },
   back: {
     color: COLORS.accent,
@@ -20,17 +20,28 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: FONTS.serifBold,
     textAlign: "center",
-    marginBottom: 12,
+    marginBottom: 8,
     color: COLORS.textPrimary,
   },
+  subtitle: {
+    fontFamily: FONTS.sans,
+    fontSize: 14,
+    color: COLORS.textSecondary,
+    textAlign: "center",
+    lineHeight: 20,
+  },
   input: {
-    borderBottomWidth: 1,
-    borderColor: COLORS.border,
     paddingHorizontal: 0,
     paddingVertical: 12,
     color: COLORS.textPrimary,
     fontFamily: FONTS.sans,
-    backgroundColor: COLORS.background,
+  },
+  inputShell: {
+    backgroundColor: COLORS.surface,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 12,
+    paddingHorizontal: 12,
   },
   row: {
     flexDirection: "row",
@@ -40,13 +51,9 @@ export const styles = StyleSheet.create({
   navButton: {
     backgroundColor: COLORS.accent,
     paddingVertical: 12,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: "center",
     borderWidth: 1,
-    borderColor: COLORS.accent,
-  },
-  navButtonSecondary: {
-    backgroundColor: COLORS.surface,
     borderColor: COLORS.accent,
   },
   navButtonText: {
@@ -54,13 +61,24 @@ export const styles = StyleSheet.create({
     fontFamily: FONTS.sansBold,
     fontSize: 16,
   },
-  navButtonTextAccent: {
+  ghostButton: {
+    backgroundColor: COLORS.surface,
+    borderColor: COLORS.border,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+  },
+  iconLabelRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  navButtonTextGhost: {
     color: COLORS.accent,
   },
   cover: {
     width: 140,
     aspectRatio: 2 / 3,
-    borderRadius: 10,
+    borderRadius: 12,
     backgroundColor: COLORS.surface,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -79,13 +97,29 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     paddingVertical: 12,
   },
-  card: {
+  statusRow: {
+    minHeight: 24,
+    justifyContent: "center",
+    gap: 4,
+  },
+  cardPrimary: {
     backgroundColor: COLORS.surface,
     padding: 16,
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: COLORS.border,
-    gap: 12,
+    gap: 14,
+  },
+  sectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8,
+  },
+  sectionTitle: {
+    fontFamily: FONTS.serifBold,
+    fontSize: 18,
+    color: COLORS.textPrimary,
   },
   label: {
     fontSize: 12,

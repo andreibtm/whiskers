@@ -8,16 +8,16 @@ export const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    padding: 24,
-    gap: 12,
+    padding: 20,
+    gap: 18,
   },
   back: {
     color: COLORS.textSecondary,
     marginBottom: 4,
   },
   title: {
-    fontFamily: FONTS.serif,
-    fontSize:30,
+    fontFamily: FONTS.serifBold,
+    fontSize: 26,
     color: COLORS.textPrimary,
     textAlign: "center",
     marginBottom: 8,
@@ -33,13 +33,16 @@ export const styles = StyleSheet.create({
     marginBottom: 4,
   },
   filterChip: {
-    paddingHorizontal: 0,
+    paddingHorizontal: 10,
     paddingVertical: 6,
-    borderRadius: 0,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    backgroundColor: COLORS.surface,
   },
   filterChipActive: {
-    borderBottomWidth: 2,
-    borderBottomColor: COLORS.textPrimary,
+    backgroundColor: COLORS.accent,
+    borderColor: COLORS.accent,
   },
   filterChipText: {
     color: COLORS.textSecondary,
@@ -47,12 +50,15 @@ export const styles = StyleSheet.create({
     fontSize: 16,
   },
   filterChipTextActive: {
-    color: COLORS.textPrimary,
+    color: COLORS.background,
   },
   filterDivider: {
     marginTop: 4,
     height: 1,
     backgroundColor: COLORS.border,
+  },
+  list: {
+    gap: 12,
   },
   error: {
     color: "#b00020",

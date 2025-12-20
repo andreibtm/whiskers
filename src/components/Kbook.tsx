@@ -53,11 +53,18 @@ const Kbook: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress, on
 const styles = StyleSheet.create({
 	card: {
 		flexDirection: "row",
-		paddingVertical: 16,
+		padding: 16,
 		alignItems: "center",
-		borderBottomWidth: 1,
-		borderBottomColor: COLORS.border,
 		gap: 12,
+		backgroundColor: COLORS.surface,
+		borderRadius: 16,
+		borderWidth: 1,
+		borderColor: COLORS.border,
+		shadowColor: "#000",
+		shadowOpacity: 0.15,
+		shadowRadius: 8,
+		shadowOffset: { width: 0, height: 4 },
+		elevation: 2,
 	},
 	row: {
 		flexDirection: "row",
@@ -66,8 +73,10 @@ const styles = StyleSheet.create({
 	cover: {
 		width: 60,
 		aspectRatio: 2 / 3,
-		borderRadius: 4,
-		backgroundColor: "#222",
+		borderRadius: 8,
+		backgroundColor: COLORS.background,
+		borderWidth: 1,
+		borderColor: COLORS.border,
 	},
 	coverPlaceholder: {
 		alignItems: "center",
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
 		gap: 4,
 	},
 	title: {
-		fontFamily: FONTS.sans,
+		fontFamily: FONTS.serifBold,
 		fontSize: 18,
 		color: COLORS.textPrimary,
 	},

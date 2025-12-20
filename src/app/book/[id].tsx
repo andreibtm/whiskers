@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import React from "react";
-import { ActivityIndicator, Button, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../../constants/theme";
 import { useBookDetails } from "../../features/book/logic";
 import { styles } from "../../features/book/styles";
@@ -66,12 +66,22 @@ export default function BookDetails() {
 
         {book && (
           <View style={styles.card}>
-            <Text style={styles.title}>{book.title}</Text>
-            <Text style={styles.subtitle}>{book.author}</Text>
-            {book.isbn ? <Text style={styles.meta}>ISBN: {book.isbn}</Text> : null}
-            {typeof book.pages === "number" && book.pages > 0 ? (
-              <Text style={styles.meta}>Pages: {book.pages}</Text>
-            ) : null}
+            <View style={styles.sectionHeader}>
+              <View style={{ flex: 1, gap: 4 }}>
+                <Text style={styles.title}>{book.title}</Text>
+                <Text style={styles.subtitle}>{book.author}</Text>
+              </View>
+              {book.status ? (
+                <View style={[styles.statusPill, { borderColor: COLORS.status[book.status], backgroundColor: COLORS.surface }]}>
+                  <Text style={styles.statusPillText}>{book.status}</Text>
+                </View>
+              ) : null}
+            </View>
+            <View style={styles.metaRow}>
+              {book.isbn ? <Text style={styles.meta}>ISBN • {book.isbn}</Text> : null}
+              {typeof book.pages === "number" && book.pages > 0 ? <Text style={styles.meta}>Pages • {book.pages}</Text> : null}
+            </View>
+
             <Link href={`/book/edit/${book.id}`} style={styles.editLink}>
               Edit book →
             </Link>
@@ -79,7 +89,10 @@ export default function BookDetails() {
         )}
 
         <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Reading Progress</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Reading Progress</Text>
+            <Text style={styles.meta}>{progressPct.toFixed(0)}% complete</Text>
+          </View>
           <View style={styles.progressBarShell}>
             <View style={[styles.progressBarFill, { width: `${progressPct}%` }]} />
           </View>
@@ -91,11 +104,15 @@ export default function BookDetails() {
             <TextInput
               style={[styles.input, styles.progressInput]}
               placeholder="Update to Page #"
-              keyboardType="numeric"
+              keyboardType="number-pad"
               value={pageIncrement}
               onChangeText={setPageIncrement}
+              returnKeyType="done"
+              onSubmitEditing={handleUpdateProgress}
             />
-            <Button title={saving ? "Saving..." : "Update"} onPress={handleUpdateProgress} disabled={saving} />
+            <TouchableOpacity style={styles.navButton} onPress={handleUpdateProgress} disabled={saving} activeOpacity={0.85}>
+              <Text style={styles.navButtonText}>{saving ? "Saving…" : "Update"}</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
@@ -129,7 +146,9 @@ export default function BookDetails() {
             value={noteText}
             onChangeText={setNoteText}
           />
-          <Button title={saving ? "Saving..." : "Save Note"} onPress={handleAddNote} disabled={saving} />
+          <TouchableOpacity style={styles.navButton} onPress={handleAddNote} disabled={saving} activeOpacity={0.85}>
+            <Text style={styles.navButtonText}>{saving ? "Saving…" : "Save Note"}</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={styles.card}>
@@ -170,8 +189,12 @@ export default function BookDetails() {
                     ))}
                   </View>
                   <View style={styles.noteActions}>
-                    <Button title={saving ? "Saving..." : "Save"} onPress={handleUpdateNote} disabled={saving} />
-                    <Button title="Cancel" onPress={cancelEdit} color="#6b7280" />
+                    <TouchableOpacity style={styles.navButton} onPress={handleUpdateNote} disabled={saving} activeOpacity={0.85}>
+                      <Text style={styles.navButtonText}>{saving ? "Saving…" : "Save"}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[styles.navButton, styles.ghostButton]} onPress={cancelEdit} activeOpacity={0.85}>
+                      <Text style={[styles.navButtonText, styles.navButtonTextGhost]}>Cancel</Text>
+                    </TouchableOpacity>
                   </View>
                 </>
               ) : (

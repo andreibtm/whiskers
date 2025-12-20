@@ -50,19 +50,22 @@ export default function Library() {
           <Text style={styles.muted}>No books saved yet.</Text>
         )}
 
-        {!loading && !error &&
-          books.map((book: { id: number; title: string; author: string; img?: string; isbn?: string | null; status?: string }) => (
-            <Kbook
-              key={book.id}
-              title={book.title}
-              author={book.author}
-              coverUrl={book.img}
-              isbn={book.isbn ?? undefined}
-              status={book.status}
-              onPress={() => handlePressBook(book.id)}
-              onLongPress={() => handleToggleStatus(book.id, (book.status as any) ?? "reading")}
-            />
-          ))}
+        {!loading && !error && (
+          <View style={styles.list}>
+            {books.map((book: { id: number; title: string; author: string; img?: string; isbn?: string | null; status?: string }) => (
+              <Kbook
+                key={book.id}
+                title={book.title}
+                author={book.author}
+                coverUrl={book.img}
+                isbn={book.isbn ?? undefined}
+                status={book.status}
+                onPress={() => handlePressBook(book.id)}
+                onLongPress={() => handleToggleStatus(book.id, (book.status as any) ?? "reading")}
+              />
+            ))}
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );

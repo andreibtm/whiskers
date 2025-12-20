@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
   },
   content: {
     flexGrow: 1,
-    padding: 24,
-    gap: 16,
+    padding: 20,
+    gap: 18,
   },
   back: {
     color: COLORS.textSecondary,
@@ -17,11 +17,11 @@ export const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: COLORS.surface,
-    borderRadius: 10,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: COLORS.border,
-    padding: 12,
-    gap: 8,
+    padding: 16,
+    gap: 12,
   },
   center: {
     alignItems: "center",
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   title: {
-    fontFamily: FONTS.serif,
+    fontFamily: FONTS.serifBold,
     fontSize: 22,
     color: COLORS.textPrimary,
   },
@@ -48,6 +48,17 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: COLORS.textPrimary,
   },
+  sectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8,
+  },
+  metaRow: {
+    flexDirection: "row",
+    gap: 12,
+    flexWrap: "wrap",
+  },
   input: {
     minHeight: 80,
     borderBottomWidth: 1,
@@ -62,6 +73,28 @@ export const styles = StyleSheet.create({
   },
   muted: {
     color: COLORS.textSecondary,
+  },
+  navButton: {
+    backgroundColor: COLORS.accent,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: COLORS.accent,
+  },
+  navButtonText: {
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.sansBold,
+    fontSize: 16,
+  },
+  navButtonTextGhost: {
+    color: COLORS.accent,
+  },
+  ghostButton: {
+    backgroundColor: COLORS.surface,
+    borderColor: COLORS.border,
+    borderWidth: 1,
   },
   noteItem: {
     borderTopWidth: 1,
@@ -152,9 +185,9 @@ export const styles = StyleSheet.create({
     gap: 8,
   },
   progressBarShell: {
-    height: 10,
-    borderRadius: 6,
-    backgroundColor: "#e5e7eb",
+    height: 12,
+    borderRadius: 12,
+    backgroundColor: COLORS.border,
     overflow: "hidden",
   },
   progressBarFill: {
@@ -175,8 +208,8 @@ export const styles = StyleSheet.create({
     minHeight: 44,
   },
   editLink: {
-    color: "#1a73e8",
-    fontWeight: "700",
+    color: COLORS.accent,
+    fontFamily: FONTS.sansBold,
     marginTop: 4,
   },
 });

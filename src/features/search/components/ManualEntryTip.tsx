@@ -1,3 +1,4 @@
+// Helper tip that nudges users to manual entry when search fails.
 import { Link } from "expo-router";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";

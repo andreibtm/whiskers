@@ -1,3 +1,4 @@
+// Shared Book/Note domain types and enums used across features.
 export type NoteCategory = "Questions" | "Facts" | "Quotes" | "Synthesis";
 
 export type Book = {

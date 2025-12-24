@@ -1,3 +1,4 @@
+// Input set for editing core book fields and progress numbers.
 import React from "react";
 import { Text, TextInput, View } from "react-native";
 import { COLORS } from "../../../../constants/theme";

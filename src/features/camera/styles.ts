@@ -1,3 +1,4 @@
+// Styles for camera overlay, scan frame, and rescan prompt.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 

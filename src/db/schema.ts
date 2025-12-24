@@ -1,3 +1,4 @@
+// Drizzle schema definitions for books, notes, reading sessions, and goals tables.
 import { sql } from "drizzle-orm";
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 

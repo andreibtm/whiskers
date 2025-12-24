@@ -1,3 +1,4 @@
+// ISBN input form with sample chips, status messaging, and link to camera scanner.
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import React from "react";

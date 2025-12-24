@@ -1,3 +1,4 @@
+// Hook for ISBN search: fetches from Google Books, handles scanner params, and saves to DB.
 import { useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 import { fetchBooks } from "../../modules/api/fetchBooks";
@@ -23,6 +24,7 @@ export const useIsbnSearch = () => {
   const [book, setBook] = useState<RemoteBook | null>(null);
 
   const handleFetch = async (incomingIsbn?: string | number | null) => {
+    // Normalize the incoming ISBN (typed or scanned), require a value, then hit Google Books.
     const incoming =
       typeof incomingIsbn === "string"
         ? incomingIsbn
@@ -66,6 +68,7 @@ export const useIsbnSearch = () => {
   }, [isbnParam]);
 
   const handleSave = async () => {
+    // Persist the fetched book into the local library; guard against duplicates.
     if (!book) return;
     setSaving(true);
     setError(null);

@@ -1,3 +1,4 @@
+// Card showing the in-progress book with cover, progress bar, and resume CTA.
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import React, { useMemo } from "react";

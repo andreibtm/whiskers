@@ -1,3 +1,4 @@
+// Manual add-book flow composing inputs, cover picker, and submit actions.
 import React from "react";
 import { ScrollView, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -30,12 +31,14 @@ export default function AddBookScreen() {
   } = useAddBook();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={styles.content}>
         
+        {/* Intro copy plus a link back to search/manual options. */}
         <AddBookHeader />
 
         <View style={styles.cardPrimary}>
+          {/* Core book fields including optional scan shortcut. */}
           <FormInputs
             title={title}
             setTitle={setTitle}
@@ -48,11 +51,13 @@ export default function AddBookScreen() {
             onScan={goToScanner}
           />
 
+          {/* Cover picker + preview. */}
           <CoverManager 
             img={img} 
             onPickImage={pickImage} 
           />
 
+          {/* Save CTA plus inline errors/success. */}
           <SubmissionArea
             saving={saving}
             error={error}

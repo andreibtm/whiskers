@@ -1,3 +1,4 @@
+// Renders the library list with loading/error states and long-press status toggle.
 import React from "react";
 import { ActivityIndicator, Text, View } from "react-native";
 import type { BookStatus } from "../../../modules/books/types";

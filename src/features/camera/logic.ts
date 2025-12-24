@@ -1,3 +1,4 @@
+// Hook to manage camera permissions, scan handling, and navigation targets.
 import { useCameraPermissions, type BarcodeScanningResult } from "expo-camera";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useRef, useState } from "react";

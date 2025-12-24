@@ -1,3 +1,4 @@
+// Displays fetched book metadata and offers a save-to-library action.
 import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import type { RemoteBook } from "../logic"; // Ensure RemoteBook is exported from logic.ts

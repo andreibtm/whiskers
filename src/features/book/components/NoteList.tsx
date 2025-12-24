@@ -1,3 +1,4 @@
+// Renders saved notes with filtering, inline edit mode, and delete actions.
 import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../../../constants/theme";
@@ -50,6 +51,7 @@ export const NoteList = ({
     <View style={styles.card}>
       <View style={styles.notesHeader}>
         <Text style={styles.sectionTitle}>Notes</Text>
+        {/* Category filter chips to narrow the note list. */}
         <View style={styles.chipRow}>
           {(["All", ...categories] as (NoteCategory | "All")[]).map((cat) => (
             <TouchableOpacity
@@ -69,6 +71,7 @@ export const NoteList = ({
         <View key={note.id} style={styles.noteItem}>
           {editingId === note.id ? (
             <>
+              {/* Inline edit mode: text area + category picker. */}
               <TextInput
                 style={[styles.input, styles.noteInput]}
                 multiline
@@ -131,6 +134,7 @@ export const NoteList = ({
                 {note.page != null ? `Pg ${note.page} • ` : ""}
                 {note.createdAt}
               </Text>
+              {/* View mode actions: start editing or delete the note. */}
               <View style={styles.noteActions}>
                 <TouchableOpacity onPress={() => onStartEdit(note.id, note.content)}>
                   <Text style={styles.action}>Edit</Text>

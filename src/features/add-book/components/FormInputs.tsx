@@ -1,3 +1,4 @@
+// Text inputs for core book fields plus a shortcut to launch the scanner.
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";

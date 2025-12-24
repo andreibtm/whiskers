@@ -1,3 +1,4 @@
+// Displays validation errors and triggers saving edits.
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles";

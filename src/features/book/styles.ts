@@ -1,3 +1,4 @@
+// Shared styling for book detail views, note lists, and progress controls.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 
@@ -48,6 +49,18 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     color: COLORS.textPrimary,
   },
+  detailTitle: {
+    fontFamily: FONTS.serifBold,
+    fontSize: 24,
+    color: COLORS.textPrimary,
+    textAlign: "center",
+  },
+  detailAuthor: {
+    fontFamily: FONTS.sans,
+    fontSize: 16,
+    color: COLORS.textSecondary,
+    textAlign: "center",
+  },
   sectionHeader: {
     flexDirection: "row",
     alignItems: "center",
@@ -82,6 +95,10 @@ export const styles = StyleSheet.create({
     textAlignVertical: "top",
     fontFamily: FONTS.sans,
   },
+  inputCompact: {
+    minHeight: 44,
+    paddingVertical: 10,
+  },
   error: {
     color: "#b00020",
   },
@@ -97,8 +114,22 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.accent,
   },
+  navButtonSecondary: {
+    backgroundColor: COLORS.surface,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: COLORS.border,
+  },
   navButtonText: {
     color: COLORS.textPrimary,
+    fontFamily: FONTS.sansBold,
+    fontSize: 16,
+  },
+  navButtonTextSecondary: {
+    color: COLORS.textSecondary,
     fontFamily: FONTS.sansBold,
     fontSize: 16,
   },
@@ -109,6 +140,87 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.surface,
     borderColor: COLORS.border,
     borderWidth: 1,
+  },
+  detailHeaderRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 4,
+  },
+  detailBack: {
+    color: COLORS.accent,
+    fontFamily: FONTS.sansBold,
+    marginBottom: 6,
+  },
+  editCircle: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    borderWidth: 1,
+    borderColor: COLORS.accent,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.surface,
+    shadowColor: "#000",
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 6,
+  },
+  editCircleText: {
+    color: COLORS.accent,
+    fontFamily: FONTS.sansBold,
+    fontSize: 16,
+    lineHeight: 18,
+    textAlign: "center",
+    textAlignVertical: "center",
+    includeFontPadding: false,
+  },
+  detailContent: {
+    flexGrow: 1,
+    paddingHorizontal: 32,
+    paddingBottom: 32,
+    gap: 18,
+    alignItems: "center",
+  },
+  coverFrame: {
+    width: 180,
+    height: 260,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 12,
+    overflow: "hidden",
+    backgroundColor: COLORS.surface,
+  },
+  coverImage: {
+    width: "100%",
+    height: "100%",
+  },
+  coverPlaceholder: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: COLORS.surface,
+  },
+  coverPlaceholderText: {
+    color: COLORS.textSecondary,
+    fontFamily: FONTS.serifBold,
+    fontSize: 16,
+  },
+  detailTitleBlock: {
+    gap: 6,
+    alignItems: "center",
+  },
+  progressBlock: {
+    width: "100%",
+    gap: 10,
+  },
+  actionRow: {
+    width: "100%",
+    flexDirection: "column",
+    gap: 12,
   },
   noteItem: {
     borderTopWidth: 1,
@@ -204,6 +316,12 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.border,
     overflow: "hidden",
   },
+  progressBarShellLarge: {
+    height: 14,
+    borderRadius: 12,
+    backgroundColor: COLORS.border,
+    overflow: "hidden",
+  },
   progressBarFill: {
     height: "100%",
     backgroundColor: COLORS.accent,
@@ -220,6 +338,45 @@ export const styles = StyleSheet.create({
   pageInput: {
     flex: 0.4,
     minHeight: 44,
+  },
+  pageRowTight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    width: "100%",
+  },
+  pageUpdateCard: {
+    width: "100%",
+    backgroundColor: COLORS.surface,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    borderRadius: 16,
+    padding: 14,
+    gap: 10,
+  },
+  floatingComposer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    paddingHorizontal: 16,
+  },
+  floatingCard: {
+    backgroundColor: COLORS.surface,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: COLORS.border,
+    padding: 14,
+    gap: 12,
+  },
+  floatingShadow: {
+    shadowColor: "#000",
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 10,
+  },
+  notesContent: {
+    paddingBottom: 220,
   },
   editLink: {
     color: COLORS.accent,

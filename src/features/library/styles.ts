@@ -1,3 +1,4 @@
+// Styling for library list, filters, and headers.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 

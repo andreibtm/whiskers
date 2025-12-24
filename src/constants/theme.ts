@@ -1,19 +1,20 @@
+// Centralized color and font tokens used across screens.
 export const COLORS = {
   background: "#000000",
   surface: "#121212",
-  textPrimary: "#FFFFFF",
+  textPrimary: "#EFECE3",
   textSecondary: "#888888",
   border: "#333333",
-  accent: "#D4AF37",
+  accent: "#628141",
   categories: {
     question: "#FF6B6B",
-    fact: "#4ECDC4",
+    fact: "#8FABD4",
     quote: "#95A5A6",
-    synthesis: "#FDCB6E",
+    synthesis: "#4A70A9",
   },
   status: {
-    reading: "#D4AF37",
-    paused: "#A0A0A0",
+    reading: "#4A70A9",
+    paused: "#8FABD4",
     finished: "#4CAF50",
   },
 } as const;

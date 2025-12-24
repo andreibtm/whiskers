@@ -1,3 +1,4 @@
+// Intro copy and navigation back link for the manual add-book flow.
 import { Link } from "expo-router";
 import React from "react";
 import { Text } from "react-native";

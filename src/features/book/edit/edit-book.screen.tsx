@@ -1,3 +1,4 @@
+// Edit form for an existing book record with cover picker and validation.
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -33,7 +34,7 @@ export default function EditBookScreen() {
 
   if (!bookId || Number.isNaN(bookId)) {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
         <View style={styles.center}>
           <Text>Invalid book id.</Text>
         </View>
@@ -42,7 +43,7 @@ export default function EditBookScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={styles.content}>
         
         <EditBookHeader bookId={bookId} />

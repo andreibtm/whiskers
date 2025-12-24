@@ -1,3 +1,4 @@
+// Status filter chips for the Library tab.
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import type { BookStatus } from "../../../modules/books/types";

@@ -1,3 +1,4 @@
+// Hook that loads books, filters by status, and wires navigation for the Library tab.
 import { useFocusEffect, useRouter } from "expo-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { updateBookStatus } from "../../modules/books/book.service";

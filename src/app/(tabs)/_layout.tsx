@@ -1,3 +1,4 @@
+// Tab navigator shell for home/search/library with consistent icons and styling.
 import { Ionicons } from "@expo/vector-icons"; // Using Ionicons for cleaner look
 import { Tabs } from "expo-router";
 import React from "react";

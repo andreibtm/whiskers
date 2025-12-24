@@ -1,3 +1,4 @@
+// Compact stats grid summarizing streak, pages, time spent, and goals progress.
 import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "../styles";

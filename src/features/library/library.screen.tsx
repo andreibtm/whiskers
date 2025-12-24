@@ -1,3 +1,4 @@
+// Library tab showing filters and the list of saved books.
 import React from "react";
 import { ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -21,7 +22,7 @@ export default function LibraryScreen() {
   } = useLibraryScreen();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={styles.content}>
         
         <LibraryHeader />

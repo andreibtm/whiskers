@@ -1,3 +1,4 @@
+// Pomodoro-style timer controls used on the Home screen to log sessions.
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
@@ -28,6 +29,7 @@ export const FocusSession = ({
   onComplete,
 }: Props) => {
   
+  // Start/stop shortcut used by both the main button and the trailing icon.
   const handlePrimaryTimerAction = () => {
     if (timerRunning) {
       onPause();

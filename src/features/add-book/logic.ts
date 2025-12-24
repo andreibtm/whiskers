@@ -1,3 +1,4 @@
+// State and handlers for the manual add-book form, including prefill from scanner params.
 import * as ImagePicker from "expo-image-picker";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ export const useAddBook = () => {
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
+  // Seed the ISBN field when returning from the camera scanner.
   useEffect(() => {
     if (typeof scannedIsbn === "string" && scannedIsbn.trim()) {
       setIsbn(scannedIsbn.trim());
@@ -39,6 +41,7 @@ export const useAddBook = () => {
   }, [titleParam, authorParam, pagesParam, imgParam]);
 
   const pickImage = async () => {
+    // Let the user pick/trim a cover; we keep the resulting URI in local state.
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 0.7,
@@ -50,6 +53,7 @@ export const useAddBook = () => {
   };
 
   const handleSave = async () => {
+    // Validate required fields, normalize values, and attempt to insert; surface duplicate ISBNs.
     if (!title.trim() || !author.trim()) {
       setError("Title and author are required");
       return;
@@ -82,6 +86,7 @@ export const useAddBook = () => {
   };
 
   const goToScanner = () => {
+    // Jump to the camera while preserving current form state so it can be restored on return.
     router.push({
       pathname: "/camera",
       params: {

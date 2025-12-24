@@ -1,3 +1,4 @@
+// Styling for the manual add-book form, buttons, and feedback labels.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 
@@ -12,8 +13,9 @@ export const styles = StyleSheet.create({
     gap: 18,
   },
   back: {
-    color: COLORS.textSecondary,
-    marginBottom: 4,
+    color: COLORS.accent,
+    fontFamily: FONTS.sansBold,
+    marginBottom: 6,
   },
   title: {
     fontFamily: FONTS.serifBold,
@@ -82,6 +84,7 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.surface,
     borderWidth: 1,
     borderColor: COLORS.border,
+    alignSelf: "center",
   },
   muted: {
     color: COLORS.textSecondary,

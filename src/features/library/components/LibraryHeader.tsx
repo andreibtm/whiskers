@@ -1,3 +1,4 @@
+// Library title row with quick link to add/search books.
 import { AntDesign } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import React from "react";

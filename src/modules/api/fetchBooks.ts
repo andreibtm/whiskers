@@ -1,3 +1,4 @@
+// Minimal Google Books fetcher that returns normalized book metadata by ISBN.
 export const fetchBooks = async (isbn: string) => {
     try {
         const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}`);

@@ -1,3 +1,4 @@
+// Home dashboard combining current book, weekly stats, and focus timer widgets.
 import { Link } from "expo-router";
 import React from "react";
 import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -29,10 +30,10 @@ export default function HomeScreen() {
   } = useHome();
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
       <ScrollView contentContainerStyle={styles.content}>
-        
-        {/* Header */}
+
+        {/* Header: entry point to the Library plus a simple page title. */}
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Home</Text>
           <Link href="/library" asChild>
@@ -42,21 +43,21 @@ export default function HomeScreen() {
           </Link>
         </View>
 
-        {/* Loading State */}
+        {/* Loading State: center spinner while data and fonts resolve. */}
         {loading && (
           <View style={[styles.card, { alignItems: "center" }]}>
             <ActivityIndicator />
           </View>
         )}
 
-        {/* Error State */}
+        {/* Error State: show a friendly message if the dashboard fetch fails. */}
         {!loading && error && (
           <View style={[styles.card, { alignItems: "center" }]}>
             <Text style={styles.emptyState}>{error}</Text>
           </View>
         )}
 
-        {/* Main Dashboard Content */}
+        {/* Main Dashboard Content: current book card, weekly stats grid, and focus timer. */}
         {!loading && !error && (
           <>
             <CurrentlyReading currentBook={currentBook} />

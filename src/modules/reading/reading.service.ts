@@ -1,3 +1,4 @@
+// Reading metrics helpers: sessions logging, monthly totals, streak dates, and goal storage.
 import { and, desc, eq, gte, lt } from "drizzle-orm";
 import { db } from "../../db/client";
 import { goalsTable, readingSessionsTable } from "../../db/schema";
@@ -10,8 +11,10 @@ export type ReadingSession = {
   recordedAt: string;
 };
 
+// Strip time component to compare dates for streak calculations.
 const dateOnly = (iso: string) => iso.slice(0, 10);
 
+// Insert a reading session row; used by timers and progress updates.
 export const recordReadingSession = async (params: { bookId?: number | null; pagesRead?: number; minutes?: number; recordedAt?: string }) => {
   const { bookId = null, pagesRead = 0, minutes = 0, recordedAt } = params;
   const safePages = Number.isFinite(pagesRead) ? Math.max(0, pagesRead) : 0;
@@ -34,6 +37,7 @@ export const getLatestReadingSession = async (): Promise<ReadingSession | null> 
   return (rows[0] as ReadingSession | undefined) ?? null;
 };
 
+// Sum pages/minutes for the month containing targetDate (defaults to current month).
 export const getMonthlyReadingTotals = async (targetDate: Date = new Date()) => {
   const start = new Date(targetDate);
   start.setDate(1);
@@ -77,6 +81,7 @@ export const getRecentReadingDates = async (daysBack = 60) => {
   return rows.map((row) => dateOnly(row.recordedAt as string));
 };
 
+// Retrieve (or initialize) the annual books goal target.
 export const getGoalTarget = async () => {
   const rows = await db.select().from(goalsTable).limit(1);
   if (rows.length === 0) {
@@ -87,6 +92,7 @@ export const getGoalTarget = async () => {
   return typeof target === "number" && Number.isFinite(target) ? target : 12;
 };
 
+// Persist a new annual books goal, creating the row on first set.
 export const setGoalTarget = async (target: number) => {
   const safeTarget = Number.isFinite(target) && target > 0 ? Math.round(target) : 12;
   const rows = await db.select().from(goalsTable).limit(1);

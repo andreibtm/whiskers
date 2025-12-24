@@ -1,3 +1,4 @@
+// Camera view that scans barcodes and routes back with ISBN payloads.
 import { CameraView } from "expo-camera";
 import React from "react";
 import { Button, Text, TouchableOpacity, View } from "react-native";

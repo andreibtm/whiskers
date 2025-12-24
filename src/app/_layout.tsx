@@ -1,3 +1,4 @@
+// Root navigator that waits for local DB migrations and font loading before showing routes.
 import { Inter_400Regular, Inter_600SemiBold, useFonts } from "@expo-google-fonts/inter";
 import { LibreBaskerville_400Regular, LibreBaskerville_700Bold } from "@expo-google-fonts/libre-baskerville";
 import { Stack } from "expo-router";

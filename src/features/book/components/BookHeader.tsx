@@ -1,3 +1,4 @@
+// Displays book metadata and status with a link to the edit screen.
 import { Link } from "expo-router";
 import React from "react";
 import { Text, View } from "react-native";

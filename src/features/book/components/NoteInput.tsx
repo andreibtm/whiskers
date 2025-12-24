@@ -1,3 +1,4 @@
+// Form for adding a categorized note tied to a page number.
 import React from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import type { NoteCategory } from "../../../modules/books/types";

@@ -1,14 +1,15 @@
+// Hook behind the book detail screen: loads book + notes, manages filters, and syncs progress/status.
 import { useFocusEffect, useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Alert } from "react-native";
 import {
-  addNoteForBook,
-  deleteNoteById,
-  getBookById,
-  getNotesByBookId,
-  updateBookProgress,
-  updateBookStatus,
-  updateNoteContent,
+    addNoteForBook,
+    deleteNoteById,
+    getBookById,
+    getNotesByBookId,
+    updateBookProgress,
+    updateBookStatus,
+    updateNoteContent,
 } from "../../modules/books/book.service";
 import { NOTE_CATEGORIES, type BookStatus, type NoteCategory } from "../../modules/books/types";
 
@@ -43,6 +44,7 @@ export const useBookDetails = () => {
 
   const categories = NOTE_CATEGORIES;
 
+  // Fetch book metadata and its notes; optionally filter by category.
   const loadData = useCallback(
     async (categoryFilter?: NoteCategory | "All") => {
       if (!bookId) return;
@@ -53,7 +55,7 @@ export const useBookDetails = () => {
         setBook(bookRows[0] ?? null);
         const loadedBook = bookRows[0];
         if (loadedBook && (loadedBook.currentPage ?? 0) >= 0) {
-          setPageIncrement(String(loadedBook.currentPage ?? ""));
+          setPageIncrement("");
           setNotePage(String(loadedBook.currentPage ?? ""));
         }
         const noteRows = await getNotesByBookId(
@@ -77,10 +79,12 @@ export const useBookDetails = () => {
 
   useFocusEffect(
     useCallback(() => {
+      // Keep details in sync when returning from other screens (e.g., edit view).
       loadData(noteFilter);
     }, [noteFilter, loadData])
   );
 
+  // Create a new note against the current book and refresh the list.
   const handleAddNote = useCallback(async () => {
     if (!bookId || !noteText.trim()) return;
     const parsedPage = notePage.trim() ? Number(notePage) : book?.currentPage ?? null;
@@ -102,6 +106,7 @@ export const useBookDetails = () => {
     }
   }, [bookId, noteText, noteCategory, notePage, book?.currentPage, loadData, noteFilter]);
 
+  // Persist a new current page, adjust status when finishing, and reload state.
   const handleUpdateProgress = useCallback(async () => {
     if (!bookId || !pageIncrement.trim()) return;
     const targetPage = Number(pageIncrement);
@@ -133,6 +138,7 @@ export const useBookDetails = () => {
     }
   }, [bookId, pageIncrement, book, loadData, noteFilter]);
 
+  // Enter inline edit mode for a note.
   const startEdit = useCallback(
     (id: number, content: string) => {
       setEditingId(id);
@@ -143,12 +149,14 @@ export const useBookDetails = () => {
     [notes]
   );
 
+  // Exit edit mode and clear edit buffers.
   const cancelEdit = useCallback(() => {
     setEditingId(null);
     setEditingText("");
     setEditingCategory("Synthesis");
   }, []);
 
+  // Save edits to a note then reload filtered notes.
   const handleUpdateNote = useCallback(async () => {
     if (!editingId || !editingText.trim()) return;
     setSaving(true);
@@ -165,6 +173,7 @@ export const useBookDetails = () => {
     }
   }, [editingId, editingText, editingCategory, cancelEdit, loadData, noteFilter]);
 
+  // Delete a note and refresh; also exit edit mode if needed.
   const handleDeleteNote = useCallback(
     async (noteId: number) => {
       setSaving(true);

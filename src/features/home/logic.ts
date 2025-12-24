@@ -1,18 +1,20 @@
+// Hook powering the Home dashboard: loads stats, determines current book, and runs a focus timer.
 import { useFocusEffect } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getBooks } from "../../modules/books/book.service";
 import type { Book } from "../../modules/books/types";
 import {
-  getGoalTarget,
-  getLatestReadingSession,
-  getMonthlyReadingTotals,
-  getRecentReadingDates,
-  recordReadingSession,
+    getGoalTarget,
+    getLatestReadingSession,
+    getMonthlyReadingTotals,
+    getRecentReadingDates,
+    recordReadingSession,
 } from "../../modules/reading/reading.service";
 
 const DEFAULT_TIMER_SECONDS = 25 * 60;
 const dayKey = (date: Date) => date.toISOString().slice(0, 10);
 
+// Derive a reading streak in days based on ISO date strings of recent sessions.
 const computeStreak = (dates: string[]) => {
   if (!dates || dates.length === 0) return 0;
   const days = new Set(dates);
@@ -46,6 +48,7 @@ export const useHome = () => {
     timerStartRef.current = DEFAULT_TIMER_SECONDS;
   }, []);
 
+  // Pull dashboard data: library list, most recent session, monthly totals, streak, and goal target.
   const load = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -106,6 +109,7 @@ export const useHome = () => {
 
   useEffect(() => {
     if (!timerRunning) return;
+    // Tick down once per second; when it hits zero, log a reading session and reset the timer.
     const id = setInterval(() => {
       setTimerSeconds((prev) => {
         if (prev <= 1) {
@@ -132,6 +136,7 @@ export const useHome = () => {
     resetTimerState();
   }, [resetTimerState]);
 
+   // Used when a user taps “Done” mid-session; logs elapsed time so far.
   const completeTimerEarly = useCallback(async () => {
     if (timerRunning || timerSeconds !== timerStartRef.current) {
       setTimerRunning(false);

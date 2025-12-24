@@ -1,3 +1,4 @@
+// Styling for the Home dashboard cards, typography, and focus timer controls.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 

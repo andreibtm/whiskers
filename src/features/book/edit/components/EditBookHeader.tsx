@@ -1,3 +1,4 @@
+// Header copy for the edit-book flow with a back link to the detail page.
 import { Link } from "expo-router";
 import React from "react";
 import { Text } from "react-native";
@@ -11,7 +12,7 @@ export const EditBookHeader = ({ bookId }: Props) => {
   return (
     <>
       <Link href={`/book/${bookId}`} style={styles.back}>
-        ← Back to Book
+        ← Back
       </Link>
       <Text style={styles.title}>Edit Book</Text>
       <Text style={styles.subtitle}>

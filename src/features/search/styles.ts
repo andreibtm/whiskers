@@ -1,3 +1,4 @@
+// Styling for the search form, result card, and helper tips.
 import { StyleSheet } from "react-native";
 import { COLORS, FONTS } from "../../constants/theme";
 

@@ -1,3 +1,4 @@
+// Hook to manage camera permissions, scan handling, and navigation targets.
 import { useCameraPermissions, type BarcodeScanningResult } from "expo-camera";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useRef, useState } from "react";
@@ -15,14 +16,15 @@ export const useCameraScreen = () => {
     img?: string;
   }>();
 
-  const resolveTargetPath = (): "/" | "/add-book" | "/camera" | "/library" => {
+  const resolveTargetPath = (): "/search" | "/add-book" | "/camera" | "/library" => {
     switch (returnTo) {
       case "/add-book":
       case "/camera":
       case "/library":
+      case "/search":
         return returnTo;
       default:
-        return "/";
+        return "/search";
     }
   };
 
@@ -43,7 +45,7 @@ export const useCameraScreen = () => {
     } else if (pathname === "/library") {
       router.push({ pathname: "/library" });
     } else {
-      router.push({ pathname: "/", params: { isbn: data } });
+      router.push({ pathname: "/search", params: { isbn: data } });
     }
   };
 

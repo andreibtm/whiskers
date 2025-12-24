@@ -1,3 +1,4 @@
+// Hook for editing a book: preload fields, handle cover selection, and persist changes.
 import * as ImagePicker from "expo-image-picker";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";

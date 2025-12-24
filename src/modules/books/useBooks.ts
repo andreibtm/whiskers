@@ -1,3 +1,4 @@
+// Shared hook to load the books list with loading/error state for consumers.
 import { useCallback, useState } from "react";
 import { getBooks } from "./book.service";
 import type { Book } from "./types";

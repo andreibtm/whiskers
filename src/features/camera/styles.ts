@@ -1,13 +1,18 @@
+// Styles for camera overlay, scan frame, and rescan prompt.
 import { StyleSheet } from "react-native";
+import { COLORS, FONTS } from "../../constants/theme";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    backgroundColor: COLORS.background,
   },
   message: {
     textAlign: "center",
     paddingBottom: 10,
+    color: COLORS.textSecondary,
+    fontFamily: FONTS.sans,
   },
   camera: {
     flex: 1,
@@ -21,26 +26,26 @@ export const styles = StyleSheet.create({
   scanFrame: {
     width: 250,
     height: 150,
-    borderWidth: 3,
-    borderColor: "rgba(0,0,0,0.5)",
+    borderWidth: 2,
+    borderColor: COLORS.border,
     backgroundColor: "rgba(0, 0, 0, 0)",
-    borderRadius: 20,
+    borderRadius: 16,
   },
   overlayText: {
-    color: "white",
+    color: COLORS.textPrimary,
     marginTop: 20,
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 16,
+    fontFamily: FONTS.sansBold,
     backgroundColor: "rgba(0,0,0,0.5)",
-    padding: 10,
-    borderRadius: 10,
+    padding: 8,
+    borderRadius: 8,
   },
   rescanBar: {
     position: "absolute",
     bottom: 32,
     left: 16,
     right: 16,
-    backgroundColor: "rgba(0,0,0,0.7)",
+    backgroundColor: COLORS.surface,
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderRadius: 12,
@@ -48,19 +53,24 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     gap: 12,
+    borderWidth: 1,
+    borderColor: COLORS.border,
   },
   rescanText: {
-    color: "white",
+    color: COLORS.textPrimary,
     fontSize: 16,
+    fontFamily: FONTS.sans,
   },
   rescanButton: {
     paddingHorizontal: 12,
     paddingVertical: 8,
-    backgroundColor: "#4b8df8",
+    backgroundColor: COLORS.accent,
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: COLORS.accent,
   },
   rescanButtonText: {
-    color: "white",
-    fontWeight: "600",
+    color: COLORS.textPrimary,
+    fontFamily: FONTS.sansBold,
   },
 });

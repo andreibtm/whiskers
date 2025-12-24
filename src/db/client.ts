@@ -1,3 +1,4 @@
+// Drizzle + Expo SQLite client plus a helper hook for running migrations on app startup.
 import { drizzle } from 'drizzle-orm/expo-sqlite';
 import { useMigrations } from 'drizzle-orm/expo-sqlite/migrator';
 import * as SQLite from 'expo-sqlite';

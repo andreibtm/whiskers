@@ -13,13 +13,24 @@ _A polished, offline-first reading companion built with Expo + React Native._
 - Offline-first SQLite persistence via Drizzle ORM—no auth, no cloud, your data stays local.
 - Mobile-first UX with Expo Router, lean components, and dark-friendly styling.
 
-## Screenshots
+## Feature Walkthrough
 
-| Library                                | Search                                  | Add Book                                | Book Detail                                |
-| -------------------------------------- | --------------------------------------- | --------------------------------------- | ------------------------------------------ |
-| ![Library](assets/README/IMG_0965.jpg) | ![Search](assets/README/IMG_0966.jpg)   | ![Add Book](assets/README/IMG_0967.jpg) | ![Book Detail](assets/README/IMG_0968.jpg) |
-| Notes                                  | Progress                                | Filters                                 | Edit Book                                  |
-| ![Notes](assets/README/IMG_0969.jpg)   | ![Progress](assets/README/IMG_0970.jpg) | ![Filters](assets/README/IMG_0971.jpg)  | ![Edit Book](assets/README/IMG_0972.jpg)   |
+- **Home dashboard:** Current reading list, pace, and weekly streak cues to keep momentum.  
+  ![Home screens](assets/README/home1.jpg)
+  ![Home detail](assets/README/home2.jpg)
+
+- **Library management:** Card-first grid with status pills (Reading, Paused, Finished) and quick access to details.  
+  ![Library overview](assets/README/library1.jpg)
+  ![Library filters](assets/README/library2.jpg)
+  ![Library detail](assets/README/library3.jpg)
+
+- **Search and scan:** ISBN scanning and text search that prefill metadata from Open Library / Google Books.  
+  ![Search flow](assets/README/search1.jpg)
+  ![Scan to add](assets/README/search2.jpg)
+
+- **Add a book (manual or enriched):** Clean form with cover picker, author/title/pages, and optional ISBN for downstream lookups.  
+  ![Add book form](assets/README/add-book.jpg)
+  ![Add book enriched](assets/README/add-book2.jpg)
 
 ## Product Story
 

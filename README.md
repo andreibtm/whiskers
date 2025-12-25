@@ -41,9 +41,9 @@ _A polished, offline-first reading companion built with Expo + React Native._
 
 - **Book detail & notes:** Progress tracking plus a per-book note stream for quotes, questions, and takeaways.
 
-| Book detail                         | Notes                         |
-| ----------------------------------- | ----------------------------- |
-| _Add assets/README/book-detail.jpg_ | _Add assets/README/notes.jpg_ |
+| Book detail                                             | Notes                                             |
+| ------------------------------------------------------- | ------------------------------------------------- |
+| <img src="assets/README/book-detail.PNG" width="200" /> | <img src="assets/README/notes.PNG" width="200" /> |
 
 ## Product Story
 

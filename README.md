@@ -21,6 +21,40 @@ _A polished, offline-first reading companion built with Expo + React Native._
 | Notes                                  | Progress                                | Filters                                 | Edit Book                                  |
 | ![Notes](assets/README/IMG_0969.jpg)   | ![Progress](assets/README/IMG_0970.jpg) | ![Filters](assets/README/IMG_0971.jpg)  | ![Edit Book](assets/README/IMG_0972.jpg)   |
 
+## Feature Snapshots (with context)
+
+- **Library overview:** Card-based grid with status pills to jump into any title quickly.
+
+  ![Library overview](assets/README/IMG_0965.jpg)
+
+- **Smart search:** ISBN scan or text search pulls clean metadata so the form starts prefilled.
+
+  ![Smart search](assets/README/IMG_0966.jpg)
+
+- **Guided add flow:** Manual entry with cover picker and validation for the essentials.
+
+  ![Guided add flow](assets/README/IMG_0967.jpg)
+
+- **Book detail:** Rich header, status chip, and quick links to edit or open notes.
+
+  ![Book detail](assets/README/IMG_0968.jpg)
+
+- **Notes that stick:** Fast note-taking space per book with clear typographic hierarchy.
+
+  ![Notes workspace](assets/README/IMG_0969.jpg)
+
+- **Progress tracking:** Update current page, see percent complete, and visualize progress.
+
+  ![Progress tracking](assets/README/IMG_0970.jpg)
+
+- **Library filters:** Triage by status (Reading, Paused, Finished) without losing context.
+
+  ![Library filters](assets/README/IMG_0971.jpg)
+
+- **Edit without friction:** Adjust title, author, pages, ISBN, and cover in one pass.
+
+  ![Edit book](assets/README/IMG_0972.jpg)
+
 ## Product Story
 
 Whiskers is designed to keep long-form reading organized: capture a book via scan or search, drop quick notes with tags, and track progress without losing context. The app is intentionally offline-first to keep focus on reading—not accounts, sync, or ads.

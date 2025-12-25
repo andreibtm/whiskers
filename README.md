@@ -13,18 +13,37 @@ _A polished, offline-first reading companion built with Expo + React Native._
 - Offline-first SQLite persistence via Drizzle ORM—no auth, no cloud, your data stays local.
 - Mobile-first UX with Expo Router, lean components, and dark-friendly styling.
 
-## Feature Walkthrough
+## Features
 
-- **Home dashboard:** Current reading list, pace, and weekly streak cues to keep momentum.
-- **Library management:** Card-first grid with status pills (Reading, Paused, Finished) and quick access to details.
-- **Search and scan:** ISBN scanning and text search that prefill metadata from Open Library / Google Books.
-- **Add a book (manual or enriched):** Clean form with cover picker, author/title/pages, and optional ISBN for downstream lookups.
+- **Home:** Glanceable dashboard for current reads, pace, and streak momentum.
 
-| Home                                      | Home (detail)                             | Library (overview)                              | Library (filters)                                 | Library (detail)                              |
-| ----------------------------------------- | ----------------------------------------- | ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| ![Home screens](assets/README/home1.jpg)  | ![Home detail](assets/README/home2.jpg)   | ![Library overview](assets/README/library1.jpg) | ![Library filters](assets/README/library2.jpg)    | ![Library detail](assets/README/library3.jpg) |
-| Search                                    | Scan                                      | Add book                                        | Add book (enriched)                               | —                                             |
-| ![Search flow](assets/README/search1.jpg) | ![Scan to add](assets/README/search2.jpg) | ![Add book form](assets/README/add-book.jpg)    | ![Add book enriched](assets/README/add-book2.jpg) |                                               |
+| Home                                     | Home detail                             |
+| ---------------------------------------- | --------------------------------------- |
+| ![Home screens](assets/README/home1.jpg) | ![Home detail](assets/README/home2.jpg) |
+
+- **Search & scan:** ISBN scanner plus text search that prefill metadata from Open Library / Google Books.
+
+| Search                                    | Scan                                      |
+| ----------------------------------------- | ----------------------------------------- |
+| ![Search flow](assets/README/search1.jpg) | ![Scan to add](assets/README/search2.jpg) |
+
+- **Add book:** Manual or enriched add flow with cover picker, title/author/pages, and optional ISBN.
+
+| Add book                                     | Add book (enriched)                               |
+| -------------------------------------------- | ------------------------------------------------- |
+| ![Add book form](assets/README/add-book.jpg) | ![Add book enriched](assets/README/add-book2.jpg) |
+
+- **Library:** Card-first catalog with status filters (Reading, Paused, Finished) and quick access to details.
+
+| Library overview                                | Library filters                                | Library detail                                |
+| ----------------------------------------------- | ---------------------------------------------- | --------------------------------------------- |
+| ![Library overview](assets/README/library1.jpg) | ![Library filters](assets/README/library2.jpg) | ![Library detail](assets/README/library3.jpg) |
+
+- **Book detail & notes:** Progress tracking plus a per-book note stream for quotes, questions, and takeaways.
+
+| Book detail                         | Notes                         |
+| ----------------------------------- | ----------------------------- |
+| _Add assets/README/book-detail.jpg_ | _Add assets/README/notes.jpg_ |
 
 ## Product Story
 

@@ -15,22 +15,16 @@ _A polished, offline-first reading companion built with Expo + React Native._
 
 ## Feature Walkthrough
 
-- **Home dashboard:** Current reading list, pace, and weekly streak cues to keep momentum.  
-  ![Home screens](assets/README/home1.jpg)
-  ![Home detail](assets/README/home2.jpg)
+- **Home dashboard:** Current reading list, pace, and weekly streak cues to keep momentum.
+- **Library management:** Card-first grid with status pills (Reading, Paused, Finished) and quick access to details.
+- **Search and scan:** ISBN scanning and text search that prefill metadata from Open Library / Google Books.
+- **Add a book (manual or enriched):** Clean form with cover picker, author/title/pages, and optional ISBN for downstream lookups.
 
-- **Library management:** Card-first grid with status pills (Reading, Paused, Finished) and quick access to details.  
-  ![Library overview](assets/README/library1.jpg)
-  ![Library filters](assets/README/library2.jpg)
-  ![Library detail](assets/README/library3.jpg)
-
-- **Search and scan:** ISBN scanning and text search that prefill metadata from Open Library / Google Books.  
-  ![Search flow](assets/README/search1.jpg)
-  ![Scan to add](assets/README/search2.jpg)
-
-- **Add a book (manual or enriched):** Clean form with cover picker, author/title/pages, and optional ISBN for downstream lookups.  
-  ![Add book form](assets/README/add-book.jpg)
-  ![Add book enriched](assets/README/add-book2.jpg)
+| Home                                      | Home (detail)                             | Library (overview)                              | Library (filters)                                 | Library (detail)                              |
+| ----------------------------------------- | ----------------------------------------- | ----------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
+| ![Home screens](assets/README/home1.jpg)  | ![Home detail](assets/README/home2.jpg)   | ![Library overview](assets/README/library1.jpg) | ![Library filters](assets/README/library2.jpg)    | ![Library detail](assets/README/library3.jpg) |
+| Search                                    | Scan                                      | Add book                                        | Add book (enriched)                               | —                                             |
+| ![Search flow](assets/README/search1.jpg) | ![Scan to add](assets/README/search2.jpg) | ![Add book form](assets/README/add-book.jpg)    | ![Add book enriched](assets/README/add-book2.jpg) |                                               |
 
 ## Product Story
 

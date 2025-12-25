@@ -23,37 +23,80 @@ _A polished, offline-first reading companion built with Expo + React Native._
 
 ## Feature Snapshots (with context)
 
-- **Library overview:** Card-based grid with status pills to jump into any title quickly.
-
-  ![Library overview](assets/README/IMG_0965.jpg)
-
-- **Smart search:** ISBN scan or text search pulls clean metadata so the form starts prefilled.
-
-  ![Smart search](assets/README/IMG_0966.jpg)
-
-- **Guided add flow:** Manual entry with cover picker and validation for the essentials.
-
-  ![Guided add flow](assets/README/IMG_0967.jpg)
-
-- **Book detail:** Rich header, status chip, and quick links to edit or open notes.
-
-  ![Book detail](assets/README/IMG_0968.jpg)
-
-- **Notes that stick:** Fast note-taking space per book with clear typographic hierarchy.
-
-  ![Notes workspace](assets/README/IMG_0969.jpg)
-
-- **Progress tracking:** Update current page, see percent complete, and visualize progress.
-
-  ![Progress tracking](assets/README/IMG_0970.jpg)
-
-- **Library filters:** Triage by status (Reading, Paused, Finished) without losing context.
-
-  ![Library filters](assets/README/IMG_0971.jpg)
-
-- **Edit without friction:** Adjust title, author, pages, ISBN, and cover in one pass.
-
-  ![Edit book](assets/README/IMG_0972.jpg)
+<table>
+  <tr>
+    <td width="45%">
+      <strong>Library overview</strong><br />
+      Card-based grid with status pills to jump into any title quickly.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0965.jpg" alt="Library overview" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Smart search</strong><br />
+      ISBN scan or text search pulls clean metadata so the form starts prefilled.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0966.jpg" alt="Smart search" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Guided add flow</strong><br />
+      Manual entry with cover picker and validation for the essentials.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0967.jpg" alt="Guided add flow" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Book detail</strong><br />
+      Rich header, status chip, and quick links to edit or open notes.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0968.jpg" alt="Book detail" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Notes that stick</strong><br />
+      Fast note-taking space per book with clear typographic hierarchy.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0969.jpg" alt="Notes workspace" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Progress tracking</strong><br />
+      Update current page, see percent complete, and visualize progress.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0970.jpg" alt="Progress tracking" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Library filters</strong><br />
+      Triage by status (Reading, Paused, Finished) without losing context.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0971.jpg" alt="Library filters" width="320" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <strong>Edit without friction</strong><br />
+      Adjust title, author, pages, ISBN, and cover in one pass.
+    </td>
+    <td align="center">
+      <img src="assets/README/IMG_0972.jpg" alt="Edit book" width="320" />
+    </td>
+  </tr>
+</table>
 
 ## Product Story
 

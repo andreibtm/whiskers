@@ -1,52 +1,76 @@
+<div align="center">
+
 # Whiskers
 
-Read deeply, remember more, and keep every thought in one place. Whiskers is an offline-first reading companion designed to cure fragmented reading—no more scribbles in margins, scattered stickies, or random notes apps.
+_A polished, offline-first reading companion built with Expo + React Native._
 
-## Why Whiskers
+</div>
 
-- **📚 The Anti-Library:** Organize Reading, Planning, and Finished stacks in a distraction-free dark mode space.
-- **🧠 Thought Stream:** Timeline notes with quick tags (Questions, Facts, Quotes, Synthesis) to build a second brain for every book.
-- **⚡ Scan & Scout:** Add books instantly by scanning ISBN barcodes (Google Books) or searching archives (Open Library).
-- **🔒 Local First:** Your data lives on your device—no login, no cloud, no tracking. Just you and your books.
+## Highlights at a Glance
 
-## Feature Highlights
+- Barcode scanning + Open Library / Google Books lookups to prefill metadata in seconds.
+- Manual add flow with cover picker, progress tracking, and per-book notes.
+- Offline-first SQLite persistence via Drizzle ORM—no auth, no cloud, your data stays local.
+- Mobile-first UX with Expo Router, lean components, and dark-friendly styling.
 
-- Barcode scanning to capture ISBNs and prefill book data.
-- Manual add flow for titles without reliable metadata.
-- Library view with cover art, authors, and navigation into per-book detail.
-- Per-book note streams categorized for fast recall.
-- Offline-friendly: SQLite via Expo + Drizzle ORM; everything persists locally.
+## Screenshots
 
-## Tech Stack
+| Library                                | Search                                  | Add Book                                | Book Detail                                |
+| -------------------------------------- | --------------------------------------- | --------------------------------------- | ------------------------------------------ |
+| ![Library](assets/README/IMG_0965.jpg) | ![Search](assets/README/IMG_0966.jpg)   | ![Add Book](assets/README/IMG_0967.jpg) | ![Book Detail](assets/README/IMG_0968.jpg) |
+| Notes                                  | Progress                                | Filters                                 | Edit Book                                  |
+| ![Notes](assets/README/IMG_0969.jpg)   | ![Progress](assets/README/IMG_0970.jpg) | ![Filters](assets/README/IMG_0971.jpg)  | ![Edit Book](assets/README/IMG_0972.jpg)   |
 
-- **Expo / React Native** for the mobile experience.
-- **Expo Router** for file-based navigation.
-- **Drizzle ORM + Expo SQLite** for local, offline-first storage.
-- **Google Books / Open Library** for metadata lookups.
+## Product Story
+
+Whiskers is designed to keep long-form reading organized: capture a book via scan or search, drop quick notes with tags, and track progress without losing context. The app is intentionally offline-first to keep focus on reading—not accounts, sync, or ads.
+
+## Core Features
+
+- **Capture fast:** Scan an ISBN or search by title/author; metadata pre-fills the add form.
+- **Flexible covers:** Import from gallery or use provided art; previews fit without cropping.
+- **Progress tracking:** Update current page, see percent complete, and watch weekly streaks.
+- **Notes that stick:** Per-book note streams with lightweight categorization for recall.
+- **Library controls:** Filters by status (Reading, Paused, Finished) with clean cards.
+
+## Architecture
+
+- **Client:** Expo + React Native with Expo Router for file-based navigation.
+- **State/logic:** Screen-specific hooks keep UI lean; minimal global state.
+- **Data:** Drizzle ORM on Expo SQLite for local, schema-driven persistence.
+- **Integrations:** Google Books / Open Library for metadata enrichment.
+
+## Developer Experience
+
+- TypeScript everywhere with strict eslint/tsconfig defaults.
+- Modular feature folders (add-book, search, library, book, camera) to keep changes scoped.
+- Theming via `src/constants/theme.ts` for consistent colors and typography.
 
 ## Getting Started
 
-1. Install dependencies
-
 ```bash
 npm install
-```
-
-2. Run the app (choose a platform in the Expo CLI)
-
-```bash
 npx expo start
 ```
 
-3. If you hit DB errors on first run, reload so migrations can finish (handled in the app layout).
+- Choose a platform in the Expo CLI (iOS simulator, Android emulator, or Expo Go).
+- On first boot, allow the app to run migrations; if the DB feels stale, reload once.
 
-## Current Screens
+## Project Map
 
-- **Search**: Enter or scan an ISBN, fetch book metadata, save to library.
-- **Add Manually**: Enter title/author/pages/ISBN and optional cover.
-- **Library**: Browse saved books and open details.
-- **Camera**: Scan barcodes with a minimal overlay and one-tap flow.
+- App shell and routing: `src/app`
+- Feature views and logic: `src/features/*`
+- Data + services: `src/modules/*`
+- Database schema/migrations: `drizzle/`
+- Assets and README screenshots: `assets/README/`
+
+## Tech Stack
+
+- **Expo / React Native** for mobile UI
+- **Expo Router** for navigation
+- **Drizzle ORM + Expo SQLite** for offline data
+- **TypeScript** for safety and IDE support
 
 ## Contributing
 
-Issues and PRs are welcome. Please keep contributions focused on the offline-first reading experience, clarity of UI, and reliability of local data.
+Issues and PRs are welcome. Focus on keeping the experience fast, offline-first, and distraction-free.

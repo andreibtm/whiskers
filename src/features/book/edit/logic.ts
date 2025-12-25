@@ -49,7 +49,7 @@ export const useEditBook = () => {
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
       quality: 0.7,
-      allowsEditing: true,
+      allowsEditing: false,
     });
     if (!result.canceled) {
       setImg(result.assets[0].uri);

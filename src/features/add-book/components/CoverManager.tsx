@@ -25,7 +25,7 @@ export const CoverManager = ({ img, onPickImage }: Props) => {
       </TouchableOpacity>
 
       {img ? (
-        <Image source={{ uri: img }} style={styles.cover} />
+        <Image source={{ uri: img }} style={styles.cover} resizeMode="contain" />
       ) : (
         <Text style={styles.muted}>No cover selected</Text>
       )}

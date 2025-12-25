@@ -2,15 +2,15 @@
 import { Link } from "expo-router";
 import React from "react";
 import {
-  ActivityIndicator,
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
+    ActivityIndicator,
+    Image,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
 } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useBookDetails } from "./logic";
@@ -82,7 +82,7 @@ export default function BookDetailsScreen() {
               <Image
                 source={{ uri: book.img }}
                 style={styles.coverImage}
-                resizeMode="cover"
+                resizeMode="contain"
               />
             ) : (
               <View style={styles.coverPlaceholder}>

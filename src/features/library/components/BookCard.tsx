@@ -29,7 +29,7 @@ const BookCard: React.FC<BookProps> = ({ title, author, coverUrl, isbn, onPress,
 			<Image
 				source={hasCover ? { uri: coverUrl as string } : undefined}
 				style={[styles.cover, !hasCover && styles.coverPlaceholder]}
-				resizeMode="cover"
+				resizeMode="contain"
 			/>
 
 			<View style={styles.info}>

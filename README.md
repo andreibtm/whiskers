@@ -17,27 +17,27 @@ _A polished, offline-first reading companion built with Expo + React Native._
 
 - **Home:** Glanceable dashboard for current reads, pace, and streak momentum.
 
-| Home                                     | Home detail                             |
-| ---------------------------------------- | --------------------------------------- |
-| ![Home screens](assets/README/home1.jpg) | ![Home detail](assets/README/home2.jpg) |
+| Home                                              | Home detail                                       |
+| ------------------------------------------------- | ------------------------------------------------- |
+| <img src="assets/README/home1.jpg" width="240" /> | <img src="assets/README/home2.jpg" width="240" /> |
 
 - **Search & scan:** ISBN scanner plus text search that prefill metadata from Open Library / Google Books.
 
-| Search                                    | Scan                                      |
-| ----------------------------------------- | ----------------------------------------- |
-| ![Search flow](assets/README/search1.jpg) | ![Scan to add](assets/README/search2.jpg) |
+| Search                                              | Scan                                                |
+| --------------------------------------------------- | --------------------------------------------------- |
+| <img src="assets/README/search1.jpg" width="240" /> | <img src="assets/README/search2.jpg" width="240" /> |
 
 - **Add book:** Manual or enriched add flow with cover picker, title/author/pages, and optional ISBN.
 
-| Add book                                     | Add book (enriched)                               |
-| -------------------------------------------- | ------------------------------------------------- |
-| ![Add book form](assets/README/add-book.jpg) | ![Add book enriched](assets/README/add-book2.jpg) |
+| Add book                                             | Add book (enriched)                                   |
+| ---------------------------------------------------- | ----------------------------------------------------- |
+| <img src="assets/README/add-book.jpg" width="240" /> | <img src="assets/README/add-book2.jpg" width="240" /> |
 
 - **Library:** Card-first catalog with status filters (Reading, Paused, Finished) and quick access to details.
 
-| Library overview                                | Library filters                                | Library detail                                |
-| ----------------------------------------------- | ---------------------------------------------- | --------------------------------------------- |
-| ![Library overview](assets/README/library1.jpg) | ![Library filters](assets/README/library2.jpg) | ![Library detail](assets/README/library3.jpg) |
+| Library overview                                     | Library filters                                      | Library detail                                       |
+| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
+| <img src="assets/README/library1.jpg" width="200" /> | <img src="assets/README/library2.jpg" width="200" /> | <img src="assets/README/library3.jpg" width="200" /> |
 
 - **Book detail & notes:** Progress tracking plus a per-book note stream for quotes, questions, and takeaways.
 

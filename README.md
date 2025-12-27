@@ -1,100 +1,78 @@
 <div align="center">
 
-# Whiskers
+# 🐱 Whiskers
 
-_A polished, offline-first reading companion built with Expo + React Native._
+**A polished, offline-first reading companion.**
+<br />
+_Built for focus. Powered by Expo & React Native._
+
+<p>
+  <img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" />
+  <img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/Drizzle_ORM-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle" />
+</p>
+
+[Features](#-features) • [Showcase](#-app-showcase) • [Tech Stack](#-tech-stack) • [Setup](#-getting-started)
 
 </div>
 
-## Highlights at a Glance
+---
 
-- Barcode scanning + Open Library / Google Books lookups to prefill metadata in seconds.
-- Manual add flow with cover picker, progress tracking, and per-book notes.
-- Offline-first SQLite persistence via Drizzle ORM—no auth, no cloud, your data stays local.
-- Mobile-first UX with Expo Router, lean components, and dark-friendly styling.
+## 📖 The Product Story
 
-## Features
+**Whiskers** handles the chaos of a growing book collection without the noise of social media or ads. It is designed to be:
 
-- **Home:** Glanceable dashboard for current reads, pace, and streak momentum.
+* ⚡ **Fast:** Capture books via ISBN scan or search in seconds.
+* 🔒 **Private:** Offline-first architecture. No accounts, no cloud, no tracking.
+* 🎨 **Polished:** A mobile-first UX with dark-mode friendly styling and smooth transitions.
 
-| Home                                              | Home detail                                       |
-| ------------------------------------------------- | ------------------------------------------------- |
-| <img src="assets/README/home1.jpg" width="240" /> | <img src="assets/README/home2.jpg" width="240" /> |
+---
 
-- **Search & scan:** ISBN scanner plus text search that prefill metadata from Open Library / Google Books.
+## 📱 App Showcase
 
-| Search                                              | Scan                                                |
-| --------------------------------------------------- | --------------------------------------------------- |
-| <img src="assets/README/search1.jpg" width="240" /> | <img src="assets/README/search2.jpg" width="240" /> |
+### 1. Dashboard & Momentum
+Your reading life at a glance. Track current reads, pace, and daily streaks.
 
-- **Add book:** Manual or enriched add flow with cover picker, title/author/pages, and optional ISBN.
+| **Home Dashboard** | **Home Detail** |
+|:---:|:---:|
+| <img src="assets/README/home1.jpg" width="280" /> | <img src="assets/README/home2.jpg" width="280" /> |
 
-| Add book                                             | Add book (enriched)                                   |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| <img src="assets/README/add-book.jpg" width="240" /> | <img src="assets/README/add-book2.jpg" width="240" /> |
+### 2. Discovery & Capture
+Instant metadata lookup via **Open Library** & **Google Books**.
 
-- **Library:** Card-first catalog with status filters (Reading, Paused, Finished) and quick access to details.
+| **Search** | **Barcode Scan** |
+|:---:|:---:|
+| <img src="assets/README/search1.jpg" width="280" /> | <img src="assets/README/search2.jpg" width="280" /> |
 
-| Library overview                                     | Library filters                                      | Library detail                                       |
-| ---------------------------------------------------- | ---------------------------------------------------- | ---------------------------------------------------- |
-| <img src="assets/README/library1.jpg" width="200" /> | <img src="assets/README/library2.jpg" width="200" /> | <img src="assets/README/library3.jpg" width="200" /> |
+### 3. Management & Tracking
+A card-first library with status filters and rich note-taking capabilities.
 
-- **Book detail & notes:** Progress tracking plus a per-book note stream for quotes, questions, and takeaways.
+| **Add Book** | **Library Filters** | **Book Detail & Notes** |
+|:---:|:---:|:---:|
+| <img src="assets/README/add-book2.jpg" width="240" /> | <img src="assets/README/library2.jpg" width="240" /> | <img src="assets/README/notes.PNG" width="240" /> |
 
-| Book detail                                             | Notes                                             |
-| ------------------------------------------------------- | ------------------------------------------------- |
-| <img src="assets/README/book-detail.PNG" width="200" /> | <img src="assets/README/notes.PNG" width="200" /> |
+---
 
-## Product Story
+## 🛠 Tech Stack & Architecture
 
-Whiskers is designed to keep long-form reading organized: capture a book via scan or search, drop quick notes with tags, and track progress without losing context. The app is intentionally offline-first to keep focus on reading—not accounts, sync, or ads.
+This project demonstrates a modern, type-safe approach to React Native development.
 
-## Core Features
+| Category | Technology | Usage |
+| :--- | :--- | :--- |
+| **Framework** | **Expo (Managed)** | Rapid development, OTA updates, and `expo-router` for file-based navigation. |
+| **Language** | **TypeScript** | Strict typing enabled for reliable refactoring and state management. |
+| **Data Layer** | **Expo SQLite** | Local, on-device database engine. |
+| **ORM** | **Drizzle ORM** | Type-safe SQL queries, migrations, and schema definition. |
+| **API** | **OpenLibrary / Google Books** | External REST APIs for fetching cover art and metadata. |
 
-- **Capture fast:** Scan an ISBN or search by title/author; metadata pre-fills the add form.
-- **Flexible covers:** Import from gallery or use provided art; previews fit without cropping.
-- **Progress tracking:** Update current page, see percent complete, and watch weekly streaks.
-- **Notes that stick:** Per-book note streams with lightweight categorization for recall.
-- **Library controls:** Filters by status (Reading, Paused, Finished) with clean cards.
+### 📂 Project Structure
 
-## Architecture
-
-- **Client:** Expo + React Native with Expo Router for file-based navigation.
-- **State/logic:** Screen-specific hooks keep UI lean; minimal global state.
-- **Data:** Drizzle ORM on Expo SQLite for local, schema-driven persistence.
-- **Integrations:** Google Books / Open Library for metadata enrichment.
-
-## Developer Experience
-
-- TypeScript everywhere with strict eslint/tsconfig defaults.
-- Modular feature folders (add-book, search, library, book, camera) to keep changes scoped.
-- Theming via `src/constants/theme.ts` for consistent colors and typography.
-
-## Getting Started
-
-```bash
-npm install
-npx expo start
-```
-
-- Choose a platform in the Expo CLI (iOS simulator, Android emulator, or Expo Go).
-- On first boot, allow the app to run migrations; if the DB feels stale, reload once.
-
-## Project Map
-
-- App shell and routing: `src/app`
-- Feature views and logic: `src/features/*`
-- Data + services: `src/modules/*`
-- Database schema/migrations: `drizzle/`
-- Assets and README screenshots: `assets/README/`
-
-## Tech Stack
-
-- **Expo / React Native** for mobile UI
-- **Expo Router** for navigation
-- **Drizzle ORM + Expo SQLite** for offline data
-- **TypeScript** for safety and IDE support
-
-## Contributing
-
-Issues and PRs are welcome. Focus on keeping the experience fast, offline-first, and distraction-free.
+```text
+src/
+├── app/                 # Expo Router file-based navigation
+├── features/            # Feature-based modular architecture (Add, Search, Library)
+├── modules/             # Core data services and API clients
+├── constants/           # Theming (Colors, Typography)
+└── drizzle/             # Database schemas and migrations
